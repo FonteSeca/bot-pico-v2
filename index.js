@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const music = require('./music.js');
-const pico = require('.comandos/pico.js')
 const Bot = new Discord.Client();
 let PREFIX = '$';
 
