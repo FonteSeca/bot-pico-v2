@@ -71,7 +71,7 @@ Bot.on('message', msg => {
   }
 
   function gelinho(msg, suffix) {
-    const mention = suffix.content.users.first();
+    const mention = msg.content.users.first();
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) return msg.channel.send(basicembed(COR_EROU, 'Use !gelinho @user'));
     msg.delete();
     msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', mention.toString() + ', me foda com um gelinho'));
