@@ -17,8 +17,7 @@ Bot.on('ready', () => {
 Bot.on('guildMemberAdd', member => {
 
   if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "bate-papo").send(basicembed(COR_BASE, member.user.username + ' entrou d
-no servidor!'));
+  member.guild.channels.find("name", "bate-papo").send(basicembed(COR_BASE, member.user.username + ' entrou no servidor!'));
 });
 
 
