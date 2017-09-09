@@ -64,8 +64,8 @@ Bot.on('message', msg => {
   }
 
   function sorvetinho(msg, suffix) {
-    const mention = suffix.mentions.users.first();
-    const mention_other = suffix.mentions.users.last();
+    const mention = msg.mentions.users.first();
+    const mention_other = msg.mentions.users.last();
     msg.delete();
     msg.channel.send(imageembed(COR_BASE,'https://cdn.discordapp.com/attachments/332326372494016513/336569223960854538/4496860.gif', ':icecream: ' + Bot.user + ' derramou sorvetinho no ' + mention.toString()));
   }
