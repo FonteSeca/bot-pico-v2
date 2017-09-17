@@ -55,6 +55,8 @@ Bot.on('message', msg => {
       case 'triste':
         return triste(msg, suffix);
 
+      case 'hug':
+        return hug(msg, suffix);
     }
   }
 
@@ -106,9 +108,9 @@ Bot.on('message', msg => {
     HugArray = new Array();
     HugArray[0] = 'http://68.media.tumblr.com/a7c761fbec9eafd75f402c57ab8df2bb/tumblr_osfk8wDqsd1r2p8kno1_500.gif';
     HugArray[1] = 'http://i.imgur.com/VE8Oi5m.gif';
-    HugArray[2] = '';
-    HugArray[3] = '';
-    HugArray[4] = '';
+    HugArray[2] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629429305540608/unnamed_1.gif';
+    HugArray[3] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629429305540609/unnamed.gif';
+    HugArray[4] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629430320693248/unnamed_2.gif';
     HugArray[5] = '';
     HugArray[6] = '';
     HugArray[7] = '';
