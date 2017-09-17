@@ -108,9 +108,9 @@ Bot.on('message', msg => {
     HugArray = new Array();
     HugArray[0] = 'http://68.media.tumblr.com/a7c761fbec9eafd75f402c57ab8df2bb/tumblr_osfk8wDqsd1r2p8kno1_500.gif';
     HugArray[1] = 'http://i.imgur.com/VE8Oi5m.gif';
-    HugArray[2] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629429305540608/unnamed_1.gif';
-    HugArray[3] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629429305540609/unnamed.gif';
-    HugArray[4] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629430320693248/unnamed_2.gif';
+    HugArray[2] = '';
+    HugArray[3] = '';
+    HugArray[4] = '';
     HugArray[5] = '';
     HugArray[6] = '';
     HugArray[7] = '';
@@ -119,8 +119,27 @@ Bot.on('message', msg => {
     HugArray[10] = '';
     var hugnum = Math.floor(Math.random() * 2);
     var hugImg = HugArray[hugnum];
-    msg.channel.send(imageembed(COR_BASE,hugImg, msg.author.username + ' deu um abraço em ' + msg.mentions.users.first().username))
+    msg.channel.send(imageembed(COR_BASE, hugImg, msg.author.username + ' deu um abraço em ' + msg.mentions.users.first().username));
   }
+
+  function kiss(msg,suffix){
+    if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!kiss** *@user*'));
+    KissArray = new Array();
+    KissArray[0] = 'https://cdn.discordapp.com/attachments/334145215399067648/335635401559638016/G3va31oEEnIkM.gif';
+    KissArray[1] = 'https://cdn.discordapp.com/attachments/334145215399067648/335635401559638020/KH1CTZtw1iP3W.gif';
+    KissArray[2] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629429305540608/unnamed_1.gif';
+    KissArray[3] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629429305540609/unnamed.gif';
+    KissArray[4] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629430320693248/unnamed_2.gif';
+    KissArray[5] = '';
+    KissArray[6] = '';
+    KissArray[7] = '';
+    KissArray[8] = '';
+    KissArray[9] = '';
+    KissArray[10] = '';
+    var kissnum = Math.floor(Math.random() * 2);
+    var kissImg = KissArray[kissnum];
+    msg.channel.send(imageembed(COR_BASE, kissImg, msg.author.username + ' deu um beijo em ' + msg.mentions.users.first().username));
+  };
 
 });
 
