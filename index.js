@@ -106,14 +106,14 @@ Bot.on('message', msg => {
     if (msg.mentions.users.size < 1) return msg.channel.send(basicembed(COR_EROU,'Use !hug @user'));
 
     HugArray = new Array();
-    HugArray[0] = 'http://68.media.tumblr.com/a7c761fbec9eafd75f402c57ab8df2bb/tumblr_osfk8wDqsd1r2p8kno1_500.gif';
-    HugArray[1] = 'http://i.imgur.com/VE8Oi5m.gif';
-    HugArray[2] = '';
-    HugArray[3] = '';
-    HugArray[4] = '';
-    HugArray[5] = '';
-    HugArray[6] = '';
-    HugArray[7] = '';
+    HugArray[0] = 'https://media.tenor.com/images/08de7ad3dcac4e10d27b2c203841a99f/tenor.gif';
+    HugArray[1] = 'https://media.tenor.com/images/42922e87b3ec288b11f59ba7f3cc6393/tenor.gif';
+    HugArray[2] = 'https://i.pinimg.com/originals/49/a2/1e/49a21e182fcdfb3e96cc9d9421f8ee3f.gif';
+    HugArray[3] = 'http://gifimage.net/wp-content/uploads/2017/06/anime-hug-gif-11.gif';
+    HugArray[4] = 'https://media.tenor.com/images/5c35f9a6052b30442d05a855fc76b5de/tenor.gif';
+    HugArray[5] = 'https://media.giphy.com/media/ba92ty7qnNcXu/giphy.gif';
+    HugArray[6] = 'https://media.giphy.com/media/CTo4IKRN4l4SA/giphy.gif';
+    HugArray[7] = 'https://media.tenor.com/images/42922e87b3ec288b11f59ba7f3cc6393/tenor.gif';
     HugArray[8] = '';
     HugArray[9] = '';
     HugArray[10] = '';
@@ -125,13 +125,13 @@ Bot.on('message', msg => {
   function kiss(msg,suffix){
     if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!kiss** *@user*'));
     KissArray = new Array();
-    KissArray[0] = 'https://cdn.discordapp.com/attachments/334145215399067648/335635401559638016/G3va31oEEnIkM.gif';
+    KissArray[0] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629430320693248/unnamed_2.gif';
     KissArray[1] = 'https://cdn.discordapp.com/attachments/334145215399067648/335635401559638020/KH1CTZtw1iP3W.gif';
     KissArray[2] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629429305540608/unnamed_1.gif';
     KissArray[3] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629429305540609/unnamed.gif';
-    KissArray[4] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629430320693248/unnamed_2.gif';
-    KissArray[5] = '';
-    KissArray[6] = '';
+    KissArray[4] = 'https://media.giphy.com/media/bm2O3nXTcKJeU/giphy.gif';
+    KissArray[5] = 'https://media.giphy.com/media/CTo4IKRN4l4SA/giphy.gif';
+    KissArray[6] = 'https://media.giphy.com/media/OSq9souL3j5zW/giphy.gif';
     KissArray[7] = '';
     KissArray[8] = '';
     KissArray[9] = '';
