@@ -57,6 +57,14 @@ Bot.on('message', msg => {
 
       case 'hug':
         return hug(msg, suffix);
+      case 'kiss':
+          return kiss(msg, suffix);
+
+      case 'ban':
+        return ban(msg, suffix);
+      case 'kick':
+        return kick(msg, suffix);
+
     }
   }
 
@@ -122,6 +130,17 @@ Bot.on('message', msg => {
     msg.channel.send(imageembed(COR_BASE, hugImg, msg.author.username + ' deu um abraço em ' + msg.mentions.users.first().username));
   }
 
+  function ban(msg, suffix) {
+    let modRole = message.guild.roles.find("name", "Moderators");
+    if(msg.member.roles.has(modRole.id)) {
+      let banMember = msg.guild.member(msg.mentions.users.first());
+      msg.guild.member(banMember).ban();
+      msg.channel.sendMessage("Member banned.");
+    } else {
+      return msg.reply("You dont have the perms to ban members. scrub.");
+    }
+  }
+
   function kiss(msg,suffix){
     if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!kiss** *@user*'));
     KissArray = new Array();
@@ -140,6 +159,7 @@ Bot.on('message', msg => {
     var kissImg = KissArray[kissnum];
     msg.channel.send(imageembed(COR_BASE, kissImg, msg.author.username + ' deu um beijo em ' + msg.mentions.users.first().username));
   };
+
 
 });
 
