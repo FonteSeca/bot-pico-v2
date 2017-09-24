@@ -137,7 +137,7 @@ Bot.on('message', msg => {
 
   function ban(msg, suffix) {
 
-    if(isAdmin(msg.member))) {
+    if(isAdmin(msg.member)) {
       let banMember = msg.guild.member(msg.mentions.users.first());
       msg.guild.member(banMember).ban();
       msg.channel.sendMessage("Member banned.");
