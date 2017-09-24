@@ -140,9 +140,9 @@ Bot.on('message', msg => {
     if(isAdmin(msg.member)) {
       let banMember = msg.guild.member(msg.mentions.users.first());
       msg.guild.member(banMember).ban();
-      msg.channel.sendMessage("Member banned.");
+      msg.channel.send(basicembed(COR_ADM, msg.mentions.users.first().toString() + ' levou martelão.'))
     } else {
-      return msg.reply("You dont have the perms to ban members. scrub.");
+      return msg.channel.send(basicembed(COR_ADM, msg.author.toString() + ' Não possui permissão'))
     }
   }
 
