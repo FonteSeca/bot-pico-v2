@@ -68,6 +68,11 @@ Bot.on('message', msg => {
     }
   }
 
+
+  function isAdmin(member) {
+		return member.hasPermission("ADMINISTRATOR");
+	}
+
   function say(msg, suffix) {
     msg.delete();
     msg.channel.send(basicembed(COR_BASE, suffix));
@@ -131,8 +136,8 @@ Bot.on('message', msg => {
   }
 
   function ban(msg, suffix) {
-    let modRole = message.guild.roles.find("name", "Moderators");
-    if(msg.member.roles.has(modRole.id)) {
+
+    if(isAdmin(msg.member))) {
       let banMember = msg.guild.member(msg.mentions.users.first());
       msg.guild.member(banMember).ban();
       msg.channel.sendMessage("Member banned.");
