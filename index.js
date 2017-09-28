@@ -16,18 +16,18 @@ Bot.on('ready', () => {
 Bot.on('guildMemberAdd', member => {
 
   // if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "bate-papo").send(basicembed(COR_BASE, member.user.username + ' entrou no servidor!'));
+  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, member.user.username + ' entrou no servidor!'));
 });
 
 
 Bot.on('guildMemberRemove', member => {
   //  if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "bate-papo").send(basicembed(COR_BASE, member.user.username + ' saiu do servidor!'));
+  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, member.user.username + ' saiu do servidor!'));
 });
 
 Bot.on('guildBanAdd', member => {
   // if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "bate-papo").send(basicembed(COR_ADM, member.user.username + ' FOI BANIDO! YAY'));
+  member.guild.channels.find("name", "avisos").send(basicembed(COR_ADM, member.user.username + ' FOI BANIDO! YAY'));
 });
 
 Bot.on('message', msg => {
