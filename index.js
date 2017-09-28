@@ -4,8 +4,8 @@ const Bot = new Discord.Client();
 let PREFIX = '$';
 
 let COR_BASE = '16766720';
-let COR_EROU = '16766720';
-let COR_ADM = '16766720';
+let COR_EROU = '40447';
+let COR_ADM = '16711680';
 
 
 Bot.on('ready', () => {
