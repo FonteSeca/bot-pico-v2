@@ -15,18 +15,18 @@ Bot.on('ready', () => {
 
 Bot.on('guildMemberAdd', member => {
 
-  if(member.guild.id !== ''){return;}
+  // if(member.guild.id !== ''){return;}
   member.guild.channels.find("name", "bate-papo").send(basicembed(COR_BASE, member.user.username + ' entrou no servidor!'));
 });
 
 
 Bot.on('guildMemberRemove', member => {
-  if(member.guild.id !== ''){return;}
+  //  if(member.guild.id !== ''){return;}
   member.guild.channels.find("name", "bate-papo").send(basicembed(COR_BASE, member.user.username + ' saiu do servidor!'));
 });
 
 Bot.on('guildBanAdd', member => {
-  if(member.guild.id !== ''){return;}
+  // if(member.guild.id !== ''){return;}
   member.guild.channels.find("name", "bate-papo").send(basicembed(COR_ADM, member.user.username + ' FOI BANIDO! YAY'));
 });
 
@@ -130,7 +130,7 @@ Bot.on('message', msg => {
     HugArray[8] = '';
     HugArray[9] = '';
     HugArray[10] = '';
-    var hugnum = Math.floor(Math.random() * 2);
+    var hugnum = Math.floor(Math.random() * 7);
     var hugImg = HugArray[hugnum];
     msg.channel.send(imageembed(COR_BASE, hugImg, msg.author.username + ' deu um abraço em ' + msg.mentions.users.first().username));
   }
@@ -160,7 +160,7 @@ Bot.on('message', msg => {
     KissArray[8] = '';
     KissArray[9] = '';
     KissArray[10] = '';
-    var kissnum = Math.floor(Math.random() * 2);
+    var kissnum = Math.floor(Math.random() * 6);
     var kissImg = KissArray[kissnum];
     msg.channel.send(imageembed(COR_BASE, kissImg, msg.author.username + ' deu um beijo em ' + msg.mentions.users.first().username));
   };
