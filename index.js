@@ -113,14 +113,14 @@ Bot.on('message', msg => {
   }
 
   function so(msg, suffix) {
-    const mention = msg.content.users.first();
+    const mention = msg.mentions.users.first();
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) return msg.channel.send(basicembed(COR_EROU, 'Use **!so** *@user*'));
     msg.delete();
     msg.channel.send(imageembed(COR_BASE,'http://thumbnail.egloos.net/600x0/http://pds4.egloos.com/pds/200704/20/02/e0013702_02045451.jpg', 'Pico e chico chamaram ' + mention.toString() + ' para brincar de faz de conta'));
   }
 
   function triste(msg, suffix) {
-    const mention = msg.content.users.first();
+    const mention = msg.mentions.users.first();
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) return msg.channel.send(basicembed(COR_EROU, 'Use **!triste** *@user*'));
     msg.delete();
     msg.channel.send(imageembed(COR_BASE,'http://pa1.narvii.com/6513/b90bcaa652b612514a1016577338ffb20a509f97_hq.gif', mention.toString() + ', ganhou a banana do consolo, se anime!'));
@@ -149,7 +149,7 @@ Bot.on('message', msg => {
     HugArray[8] = '';
     HugArray[9] = '';
     HugArray[10] = '';
-    var hugnum = Math.floor(Math.random() * 6);
+    var hugnum = Math.floor(Math.random() * 5);
     var hugImg = HugArray[hugnum];
     msg.channel.send(imageembed(COR_BASE, hugImg, '*' + msg.author.username + '* deu um abraço em *' + msg.mentions.users.first().username + '*'));
   }
