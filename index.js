@@ -27,7 +27,7 @@ Bot.on('guildMemberRemove', member => {
 
 Bot.on('guildBanAdd', member => {
   // if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "avisos").send(basicembed(COR_ADM, member.user.username + ' FOI BANIDO! YAY'));
+  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, member.user.username + ' MORREU MUAHAUH!'));
 });
 
 Bot.on('message', msg => {
