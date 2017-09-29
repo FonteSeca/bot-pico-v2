@@ -67,7 +67,7 @@ Bot.on('message', msg => {
       case 'kick':
         return kick(msg, suffix);
 	    case 'purge':
-		    return purge2(msg, suffix);
+		    return purge(msg, suffix);
 
     }
   }
@@ -195,22 +195,7 @@ Bot.on('message', msg => {
         }
 	}
 
-  function purge2(msg, suffix) {
-        // This command removes all messages from all users in the channel, up to 100.
-    
-    // get the delete count, as an actual number.
-    const deleteCount = parseInt(args[0], 10);
-    
-    // Ooooh nice, combined conditions. <3
-    if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-      return msg.reply("Please provide a number between 2 and 100 for the number of messages to delete");
-    
-    // So we get our messages, and delete them. Simple enough, right?
-    const fetched = await msg.channel.fetchMessages({count: deleteCount});
-    msg.channel.bulkDelete(fetched)
-      .catch(error => msg.reply(`Couldn't delete messages because of: ${error}`));
-  }
-
+  
   function kiss(msg,suffix){
     if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!kiss** *@user*'));
     KissArray = new Array();
