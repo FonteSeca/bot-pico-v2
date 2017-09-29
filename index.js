@@ -123,7 +123,7 @@ Bot.on('message', msg => {
     const mention = msg.mentions.users.first();
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) return msg.channel.send(basicembed(COR_EROU, 'Use **!triste** *@user*'));
     msg.delete();
-    msg.channel.send(imageembed(COR_BASE,'http://pa1.narvii.com/6513/b90bcaa652b612514a1016577338ffb20a509f97_hq.gif', mention.toString() + ', ganhou a banana do consolo, se anime!'));
+    msg.channel.send(imageembed(COR_BASE,'http://pa1.narvii.com/6513/b90bcaa652b612514a1016577338ffb20a509f97_hq.gif', '*' + mention.toString().username + '*, ganhou a banana do consolo, se anime!'));
   }
 
   function spi(msg, suffix) {
