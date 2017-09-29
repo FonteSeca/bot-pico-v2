@@ -77,18 +77,20 @@ Bot.on('message', msg => {
 
   function say(msg, suffix) {
     msg.delete();
-    msg.channel.send(basicembed(COR_BASE, suffix));
+    msg.channel.send(suffix));
   }
 
   function sorvetinho(msg, suffix) {
-    const mention = msg.mentions.users.first();
-    const mention_other = msg.mentions.users.last();
-    msg.delete();
-    msg.channel.send(imageembed(COR_BASE,'https://cdn.discordapp.com/attachments/332326372494016513/336569223960854538/4496860.gif', ':icecream: ' + Bot.user + ' derramou sorvetinho no ' + mention.toString()));
+    if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
+      msg.channel.send(basicembed(COR_EROU,'Use **!sorvetinho** *@user*'));
+    } else {
+      const mention = msg.mentions.users.first();
+      const mention_other = msg.mentions.users.last();
+      msg.channel.send(imageembed(COR_BASE,'https://cdn.discordapp.com/attachments/332326372494016513/336569223960854538/4496860.gif', ':icecream: ' + Bot.user + ' derramou sorvetinho no ' + mention.toString()));
+    }
   }
 
   function gelinho(msg, suffix) {
-    const mention = msg.content.users.first();
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
       msg.channel.send(basicembed(COR_EROU, 'Use !gelinho @user'));
     } else {
@@ -149,8 +151,8 @@ Bot.on('message', msg => {
   function ban(msg, suffix) {
 
     if(isAdmin(msg.member)) {
-      if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
-        msg.channel.send(basicembed(COR_ADM, ' Kyaa'));
+      if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author == msg.mentions.users()) {
+        msg.channel.send(basicembed(COR_EROU,'Use **!ban** *@user*'));
       } else {
         let banMember = msg.guild.member(msg.mentions.users.first());
         msg.guild.member(banMember).ban();
