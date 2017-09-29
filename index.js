@@ -16,18 +16,18 @@ Bot.on('ready', () => {
 Bot.on('guildMemberAdd', member => {
 
   // if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, member.user.username + ' entrou no servidor!'));
+  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, '**' + member.user.username + '** entrou no servidor!'));
 });
 
 
 Bot.on('guildMemberRemove', member => {
   //  if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, member.user.username + ' saiu do servidor!'));
+  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, '**' + member.user.username + '** saiu do servidor!'));
 });
 
 Bot.on('guildBanAdd', member => {
   // if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, member.user.username + ' MORREU MUAHAUH!'));
+  member.guild.channels.find("name", "avisos").send(basicembed(COR_BASE, '**' + member.user.username + '** MORREU MUAHAUH!'));
 });
 
 Bot.on('message', msg => {
@@ -98,10 +98,10 @@ Bot.on('message', msg => {
       msg.channel.send(basicembed(COR_EROU, 'Use **!gelinho** *@user*'));
     } else if (msg.author.toString() == msg.mentions.users.first.toString()) {
 	    const mention = msg.mentions.users.first();
-      msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.username + '*, se fodeu com gelinho.'));
+      msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '**' + mention.username + '**, se fodeu com gelinho.'));
     } else {
 	    const mention = msg.mentions.users.first();
-      msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.username + '*, me foda com um gelinho.'));
+      msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '**' + mention.username + '**, me foda com um gelinho.'));
     }
  
   }
