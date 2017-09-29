@@ -108,7 +108,7 @@ Bot.on('message', msg => {
     } else if (msg.mentions.users.first() == msg.author) {
       msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '**' + mention.toString().username + '** entrou na trenzinho da alegria com chico e coco.'));
     } else {
-      const mention = msg.mentions.users.first().toString().username;
+      const mention = msg.mentions.users.first();
       msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '**' + Bot.user.username + '** convidou *' + mention.toString().username + '* para a dança do trenzinho da alegria.'));
     msg.delete();
     }
