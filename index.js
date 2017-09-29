@@ -76,7 +76,7 @@ Bot.on('message', msg => {
 	}
 
   function say(msg, suffix) {
-    msg.channel.send(suffix));
+    msg.channel.send(suffix);
   }
 
   function sorvetinho(msg, suffix) {
