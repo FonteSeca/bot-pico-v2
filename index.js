@@ -92,7 +92,7 @@ Bot.on('message', msg => {
   function gelinho(msg, suffix) {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
       msg.channel.send(basicembed(COR_EROU, 'Use !gelinho @user'));
-    } elseif (msg.author == msg.mentions.users.first ) {
+    } elseif (msg.author.toString() == msg.mentions.users.first.toString() ) {
       msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.toString().username + '*, se fodeu com gelinho.'));
     } else {
       msg.hannel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.toString().username + '*, me foda com um gelinho.'));
