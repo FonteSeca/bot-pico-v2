@@ -76,7 +76,6 @@ Bot.on('message', msg => {
 	}
 
   function say(msg, suffix) {
-    msg.delete();
     msg.channel.send(suffix));
   }
 
@@ -86,24 +85,31 @@ Bot.on('message', msg => {
     } else {
       const mention = msg.mentions.users.first();
       const mention_other = msg.mentions.users.last();
-      msg.channel.send(imageembed(COR_BASE,'https://cdn.discordapp.com/attachments/332326372494016513/336569223960854538/4496860.gif', ':icecream: ' + Bot.user + ' derramou sorvetinho no ' + mention.toString()));
+      msg.channel.send(imageembed(COR_BASE,'https://cdn.discordapp.com/attachments/332326372494016513/336569223960854538/4496860.gif', ':icecream: *' + Bot.user.username + '* derramou sorvetinho no *' + mention.toString().username + '*'));
     }
   }
 
   function gelinho(msg, suffix) {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
       msg.channel.send(basicembed(COR_EROU, 'Use !gelinho @user'));
+    } elseif (msg.author == msg.mentions.users.first ) {
+      msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.toString().username + '*, se fodeu com gelinho.'));
     } else {
-      msg.delete();
-      msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', mention.toString() + ', me foda com um gelinho'));
+      msg.hannel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.toString().username + '*, me foda com um gelinho.'));
     }
+    msg.delete();
   }
 
   function alegria(msg, suffix) {
-    const mention = msg.content.users.first();
-    if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) return msg.channel.send(basicembed(COR_EROU, 'Use !alegria @user'));
+    if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
+      msg.channel.send(basicembed(COR_EROU, 'Use !gelinho @user'));
+    } elseif (msg.author == msg.mentions.users.first ) {
+      msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '*' + mention.toString().username + '* entrou na trenzinho da alegria com chico e coco.'));
+    } else {
+      const mention = msg.content.users.first();
+      msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '*' + mention.toString().username + '* entrou na dança do trenzinho da alegria.'));
     msg.delete();
-    msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', mention.toString() + ' entrou na dança do trenzinho da alegria'));
+
   }
 
   function so(msg, suffix) {
@@ -145,7 +151,7 @@ Bot.on('message', msg => {
     HugArray[10] = '';
     var hugnum = Math.floor(Math.random() * 6);
     var hugImg = HugArray[hugnum];
-    msg.channel.send(imageembed(COR_BASE, hugImg, msg.author.username + ' deu um abraço em ' + msg.mentions.users.first().username));
+    msg.channel.send(imageembed(COR_BASE, hugImg, '*' + msg.author.username + '* deu um abraço em *' + msg.mentions.users.first().username + '*'));
   }
 
   function ban(msg, suffix) {
@@ -159,7 +165,7 @@ Bot.on('message', msg => {
         msg.channel.send(imageembed(COR_ADM,'https://66.media.tumblr.com/588ae4ae98fa9ab56afb8e482ce34f40/tumblr_nyhaxppJAy1unvqljo6_500.gif' , msg.mentions.users.first().toString() + ' levou martelão.'))
       }
     } else {
-      msg.channel.send(basicembed(COR_ADM, msg.author.toString() + ' Não possui permissão'))
+      msg.channel.send(basicembed(COR_ADM, '*' + msg.author.toString().username + '* não possui permissão'))
     }
   }
 
@@ -179,7 +185,7 @@ Bot.on('message', msg => {
     KissArray[10] = '';
     var kissnum = Math.floor(Math.random() * 6);
     var kissImg = KissArray[kissnum];
-    msg.channel.send(imageembed(COR_BASE, kissImg, msg.author.username + ' deu um beijo em ' + msg.mentions.users.first().username));
+    msg.channel.send(imageembed(COR_BASE, kissImg, '*' + msg.author.username + '* deu um beijo em *' + msg.mentions.users.first().username + '*'));
   };
 
 
