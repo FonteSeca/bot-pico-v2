@@ -150,7 +150,7 @@ Bot.on('message', msg => {
 
     if(isAdmin(msg.member)) {
       if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
-        msg.channel.send(basicembed(COR_ADM, ' Kyaa');
+        msg.channel.send(basicembed(COR_ADM, ' Kyaa'));
       } else {
         let banMember = msg.guild.member(msg.mentions.users.first());
         msg.guild.member(banMember).ban();
