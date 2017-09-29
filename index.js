@@ -105,7 +105,7 @@ Bot.on('message', msg => {
   function alegria(msg, suffix) {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
       msg.channel.send(basicembed(COR_EROU, 'Use **!alegria** *@user*'));
-    } else if (msg.mentions.users.first() == msg.author.) {
+    } else if (msg.mentions.users.first() == msg.author) {
       msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '**' + mention.toString().username + '** entrou na trenzinho da alegria com chico e coco.'));
     } else {
       const mention = msg.mentions.users.first().toString().username;
