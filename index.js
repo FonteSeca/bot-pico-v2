@@ -171,6 +171,21 @@ Bot.on('message', msg => {
     }
   }
 	
+  function kick(msg, suffix) {
+
+    if(isAdmin(msg.member)) {
+      if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author.toString() == msg.mentions.users.first().toString()) {
+        msg.channel.send(basicembed(COR_EROU,'Use **!kick** *@user*'));
+      } else {
+        let kickMember = msg.guild.member(msg.mentions.users.first());
+        msg.guild.member(kickMember).kick();
+        msg.channel.send(imageembed(COR_ADM,'https://66.media.tumblr.com/588ae4ae98fa9ab56afb8e482ce34f40/tumblr_nyhaxppJAy1unvqljo6_500.gif' , msg.mentions.users.first().toString() + ' saiu do servidor na força énoz.'))
+      }
+    } else {
+      msg.channel.send(basicembed(COR_ADM, '*' + msg.author.toString().username + '* não possui permissão'))
+    }
+  }
+	
 	function purge(msg, suffix) {
 	        if (message.member.hasPermission("MANAGE_MESSAGES")) {
             msg.channel.fetchMessages()
