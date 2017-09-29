@@ -56,6 +56,8 @@ Bot.on('message', msg => {
         return triste(msg, suffix);
       case 'spi':
         return spi(msg, suffix);
+      case 'luar':
+        return luar(msg, suffix);		   
 
       case 'hug':
         return hug(msg, suffix);
@@ -97,7 +99,7 @@ Bot.on('message', msg => {
     } else if (msg.author.toString() == msg.mentions.users.first.toString()) {
       msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.username + '*, se fodeu com gelinho.'));
     } else {
-      msg.hannel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.username + '*, me foda com um gelinho.'));
+      msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.username + '*, me foda com um gelinho.'));
     }
     msg.delete();
   }
@@ -132,7 +134,17 @@ Bot.on('message', msg => {
     const mention = msg.mentions.users.first();
     msg.channel.send(imageembed(COR_BASE, 'http://pa1.narvii.com/6513/b90bcaa652b612514a1016577338ffb20a509f97_hq.gif','**' + mention.username + '** foi convidado para o spinner do amor.'))
   }
-
+  function luar(msg, suffix) {
+    if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
+      msg.channel.send(basicembed(COR_EROU, 'Use **!luar** *@user*'));
+    } else if (msg.mentions.users.first() == msg.author) {
+      msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '**' + mention.username + '** entrou na trenzinho da alegria com chico e coco.'));
+    } else {
+      const mention = msg.mentions.users.first();
+      msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '**' + Bot.user.username + '** convidou *' + mention.username + '* para a dança do trenzinho da alegria.'));
+    msg.delete();
+    }
+  }
 
   function hug(msg,suffix){
     if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!hug** *@user*'));
