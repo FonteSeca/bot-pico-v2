@@ -150,13 +150,14 @@ Bot.on('message', msg => {
 
     if(isAdmin(msg.member)) {
       if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
-        msg.channel.send('asdasd');
+        msg.channel.send(basicembed(COR_ADM, ' Kyaa');
+      } else {
+        let banMember = msg.guild.member(msg.mentions.users.first());
+        msg.guild.member(banMember).ban();
+        msg.channel.send(imageembed(COR_ADM,'https://66.media.tumblr.com/588ae4ae98fa9ab56afb8e482ce34f40/tumblr_nyhaxppJAy1unvqljo6_500.gif' , msg.mentions.users.first().toString() + ' levou martelão.'))
       }
-      let banMember = msg.guild.member(msg.mentions.users.first());
-      msg.guild.member(banMember).ban();
-      msg.channel.send(imageembed(COR_ADM,'https://66.media.tumblr.com/588ae4ae98fa9ab56afb8e482ce34f40/tumblr_nyhaxppJAy1unvqljo6_500.gif' , msg.mentions.users.first().toString() + ' levou martelão.'))
-      return msg.channel.send(basicembed(COR_ADM, msg.author.toString() + ' Não possui permissão'))
     } else {
+      msg.channel.send(basicembed(COR_ADM, msg.author.toString() + ' Não possui permissão'))
     }
   }
 
