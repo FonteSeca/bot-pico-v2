@@ -92,7 +92,7 @@ Bot.on('message', msg => {
   function gelinho(msg, suffix) {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
       msg.channel.send(basicembed(COR_EROU, 'Use !gelinho @user'));
-    } elseif (msg.author.toString() == msg.mentions.users.first.toString() ) {
+    } else if (msg.author.toString() == msg.mentions.users.first.toString()) {
       msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.toString().username + '*, se fodeu com gelinho.'));
     } else {
       msg.hannel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '*' + mention.toString().username + '*, me foda com um gelinho.'));
@@ -103,7 +103,7 @@ Bot.on('message', msg => {
   function alegria(msg, suffix) {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
       msg.channel.send(basicembed(COR_EROU, 'Use !gelinho @user'));
-    } elseif (msg.author == msg.mentions.users.first ) {
+    } else if (msg.author == msg.mentions.users.first ) {
       msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '*' + mention.toString().username + '* entrou na trenzinho da alegria com chico e coco.'));
     } else {
       const mention = msg.content.users.first();
