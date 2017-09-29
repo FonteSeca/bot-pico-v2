@@ -66,8 +66,8 @@ Bot.on('message', msg => {
         return ban(msg, suffix);
       case 'kick':
         return kick(msg, suffix);
-	    case 'purge':
-		    return purge(msg, suffix);
+	case 'purge':
+	return purge(msg, suffix);
 
     }
   }
@@ -87,7 +87,7 @@ Bot.on('message', msg => {
     } else {
       const mention = msg.mentions.users.first();
       const mention_other = msg.mentions.users.last();
-      msg.channel.send(imageembed(COR_BASE,'https://cdn.discordapp.com/attachments/332326372494016513/336569223960854538/4496860.gif', ':icecream: *' + Bot.user.username + '* derramou sorvetinho no *' + mention.toString().username + '*'));
+      msg.channel.send(imageembed(COR_BASE,'https://cdn.discordapp.com/attachments/332326372494016513/336569223960854538/4496860.gif', '**' + Bot.user.username + '** derramou sorvetinho no *' + mention.toString().username + '*'));
     }
   }
 
@@ -105,11 +105,11 @@ Bot.on('message', msg => {
   function alegria(msg, suffix) {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
       msg.channel.send(basicembed(COR_EROU, 'Use **!alegria** *@user*'));
-    } else if (msg.author == msg.mentions.users.first ) {
-      msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '*' + mention.toString().username + '* entrou na trenzinho da alegria com chico e coco.'));
+    } else if (msg.mentions.users.first() == msg.author.) {
+      msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '**' + mention.toString().username + '** entrou na trenzinho da alegria com chico e coco.'));
     } else {
-      const mention = msg.mentions.users.first();
-      msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '*' + mention.toString().username + '* entrou na dança do trenzinho da alegria.'));
+      const mention = msg.mentions.users.first().toString().username;
+      msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '**' + Bot.user.username + '** convidou *' + mention.toString().username + '* para a dança do trenzinho da alegria.'));
     msg.delete();
     }
   }
@@ -118,20 +118,19 @@ Bot.on('message', msg => {
     const mention = msg.mentions.users.first();
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) return msg.channel.send(basicembed(COR_EROU, 'Use **!so** *@user*'));
     msg.delete();
-    msg.channel.send(imageembed(COR_BASE,'http://thumbnail.egloos.net/600x0/http://pds4.egloos.com/pds/200704/20/02/e0013702_02045451.jpg', 'Pico e chico chamaram ' + mention.toString() + ' para brincar de faz de conta'));
+    msg.channel.send(imageembed(COR_BASE,'http://thumbnail.egloos.net/600x0/http://pds4.egloos.com/pds/200704/20/02/e0013702_02045451.jpg', '**' + Bot.user.username + '** e chico chamaram *' + mention.toString() + '* para brincar de faz de conta'));
   }
 
   function triste(msg, suffix) {
     const mention = msg.mentions.users.first();
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) return msg.channel.send(basicembed(COR_EROU, 'Use **!triste** *@user*'));
     msg.delete();
-    msg.channel.send(imageembed(COR_BASE,'http://pa1.narvii.com/6513/b90bcaa652b612514a1016577338ffb20a509f97_hq.gif', '*' + mention.toString().username + '*, ganhou a banana do consolo, se anime!'));
+    msg.channel.send(imageembed(COR_BASE,'http://pa1.narvii.com/6513/b90bcaa652b612514a1016577338ffb20a509f97_hq.gif', '**' + mention.toString().username + '**, ganhou a banana do consolo, se anime!'));
   }
 
   function spi(msg, suffix) {
-
-    msg.delete();
-    msg.channel.send(imageembed())
+    const mention = msg.mentions.users.first();
+    msg.channel.send(imageembed(COR_BASE, 'http://pa1.narvii.com/6513/b90bcaa652b612514a1016577338ffb20a509f97_hq.gif','**' + mention.tmention.toString().username + '** foi convidado para o spinner do amor.'))
   }
 
 
@@ -153,7 +152,7 @@ Bot.on('message', msg => {
     HugArray[10] = '';
     var hugnum = Math.floor(Math.random() * 5);
     var hugImg = HugArray[hugnum];
-    msg.channel.send(imageembed(COR_BASE, hugImg, '*' + msg.author.username + '* deu um abraço em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_BASE, hugImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
   }
 
   function ban(msg, suffix) {
@@ -212,7 +211,7 @@ Bot.on('message', msg => {
     KissArray[10] = '';
     var kissnum = Math.floor(Math.random() * 6);
     var kissImg = KissArray[kissnum];
-    msg.channel.send(imageembed(COR_BASE, kissImg, '*' + msg.author.username + '* deu um beijo em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_BASE, kissImg, '**' + msg.author.username + '** deu um beijo em *' + msg.mentions.users.first().username + '*'));
   };
 
 
