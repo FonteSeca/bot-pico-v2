@@ -149,6 +149,9 @@ Bot.on('message', msg => {
   function ban(msg, suffix) {
 
     if(isAdmin(msg.member)) {
+      if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
+        msg.channel.send('asdasd');
+      }
       let banMember = msg.guild.member(msg.mentions.users.first());
       msg.guild.member(banMember).ban();
       msg.channel.send(imageembed(COR_ADM,'https://66.media.tumblr.com/588ae4ae98fa9ab56afb8e482ce34f40/tumblr_nyhaxppJAy1unvqljo6_500.gif' , msg.mentions.users.first().toString() + ' levou martelão.'))
