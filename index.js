@@ -157,7 +157,7 @@ Bot.on('message', msg => {
   function ban(msg, suffix) {
 
     if(isAdmin(msg.member)) {
-      if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author.toString() == msg.mentions.users().toString()) {
+      if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author.toString() == msg.mentions.users.first().toString()) {
         msg.channel.send(basicembed(COR_EROU,'Use **!ban** *@user*'));
       } else {
         let banMember = msg.guild.member(msg.mentions.users.first());
