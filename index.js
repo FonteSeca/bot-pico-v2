@@ -133,12 +133,12 @@ Bot.on('message', msg => {
     HugArray[3] = 'http://gifimage.net/wp-content/uploads/2017/06/anime-hug-gif-11.gif';
     HugArray[4] = 'https://media.tenor.com/images/5c35f9a6052b30442d05a855fc76b5de/tenor.gif';
     HugArray[5] = 'https://media.giphy.com/media/ba92ty7qnNcXu/giphy.gif';
-    HugArray[6] = 'https://media.giphy.com/media/CTo4IKRN4l4SA/giphy.gif';
-    HugArray[7] = 'https://media.tenor.com/images/42922e87b3ec288b11f59ba7f3cc6393/tenor.gif';
+    HugArray[6] = '';
+    HugArray[7] = '';
     HugArray[8] = '';
     HugArray[9] = '';
     HugArray[10] = '';
-    var hugnum = Math.floor(Math.random() * 7);
+    var hugnum = Math.floor(Math.random() * 6);
     var hugImg = HugArray[hugnum];
     msg.channel.send(imageembed(COR_BASE, hugImg, msg.author.username + ' deu um abraço em ' + msg.mentions.users.first().username));
   }
@@ -148,9 +148,9 @@ Bot.on('message', msg => {
     if(isAdmin(msg.member)) {
       let banMember = msg.guild.member(msg.mentions.users.first());
       msg.guild.member(banMember).ban();
-      msg.channel.send(basicembed(COR_ADM, msg.mentions.users.first().toString() + ' levou martelão.'))
-    } else {
+      msg.channel.send(imageembed(COR_ADM,'https://66.media.tumblr.com/588ae4ae98fa9ab56afb8e482ce34f40/tumblr_nyhaxppJAy1unvqljo6_500.gif' , msg.mentions.users.first().toString() + ' levou martelão.'))
       return msg.channel.send(basicembed(COR_ADM, msg.author.toString() + ' Não possui permissão'))
+    } else {
     }
   }
 
