@@ -109,7 +109,7 @@ Bot.on('message', msg => {
       const mention = msg.content.users.first();
       msg.channel.send(imageembed(COR_BASE,'http://static1.fjcdn.com/thumbnails/comments/There+are+no+regrets+in+the+pico+train+_b3152066afcf56723758cf921a6720ca.png', '*' + mention.toString().username + '* entrou na dança do trenzinho da alegria.'));
     msg.delete();
-
+    }
   }
 
   function so(msg, suffix) {
