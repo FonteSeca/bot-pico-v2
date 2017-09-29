@@ -187,7 +187,7 @@ Bot.on('message', msg => {
   }
 	
 	function purge(msg, suffix) {
-	        if (message.member.hasPermission("MANAGE_MESSAGES")) {
+	        if (msg.member.hasPermission("MANAGE_MESSAGES")) {
             msg.channel.fetchMessages()
                .then(function(list){
                     msg.channel.bulkDelete(list);
