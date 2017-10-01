@@ -212,7 +212,7 @@ Bot.on('message', msg => {
     SlapArray[11] = 'https://static.fjcdn.com/gifs/Bitch+slap+4+more+here+wwwyoutubecom+user+squabanime+and+here+thesquabnestcom+and+here+wwwfacebookcom+pages+squab+220040661488110+sk+timeline_161012_5187244.gif';
     var slapnum = Math.floor(Math.random() * 11);
     var slapImg = SlapArray[slapnum];
-    msg.channel.send(imageembed(COR_BASE, pokeImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_BASE, slapImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
   }
 
   function kiss(msg,suffix){
