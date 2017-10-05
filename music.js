@@ -158,6 +158,75 @@ module.exports = function (client, options) {
 		if (queue.length >= MAX_QUEUE_SIZE) {
 			return msg.channel.send(wrap('16766720',':x: :white_small_square:  Playlist cheia! Espere esvaziar'));
 		}
+		
+		const peixe = embed: {
+    color: 3447003,
+    author: {
+      name: Bot.user.username,
+      icon_url: Bot.user.avatarURL
+    },
+    title: "**COMANDOS DE PICO-SAMA**",
+    url: "https://www.baixarhentai.net/hentai/boku-no-piko",
+    description: "Nha",
+    fields: [{
+        name: "!mara",
+        value: "**MA-RA-VI-LHO-SO**"
+      },
+      {
+        name: "!moe",
+        value: "Moe moe moe"
+      },
+      {
+        name: "!cedo",
+        value: "MUITO CEDO"
+      },
+      {
+        name: "!kimochi",
+        value: "Kimochiiii"
+      },
+      {
+        name: "!ore wa",
+        value: "ORE WA"
+      },
+      {
+        name: "!euphoria",
+        value: "Vou enfiar a mão em ti."
+      },
+      {
+        name: "!lord",
+        value: "Lord Ochinchin-sama."
+      },
+      {
+        name: "!sorvetinho @user",
+        value: "Derrama sorvetinho do Pico-sama"
+      },
+      {
+        name: "!hug @user",
+        value: "Abraça coleguinha"
+      },
+      {
+        name: "!atirar @user",
+        value: "Atira no coleguinha"
+      },
+      {
+        name: "!sono",
+        value: "@user está com sono"
+      },
+      {
+        name: "!correr",
+        value: "@user está correndo"
+      },
+      {
+        name: "!dormir",
+        value: "@user está dormindo"
+      },
+    ],
+    timestamp: new Date(),
+    footer: {
+      icon_url: Bot.user.avatarURL,
+      text: "© Pico-sama"
+    }
+  };
 
 		// Get the video information.
 		msg.channel.send(wrap('16766720',':musical_note: :white_small_square:  **Procurando...**')).then(response => {
@@ -172,6 +241,7 @@ module.exports = function (client, options) {
 				if (err || info.format_id === undefined || info.format_id.startsWith('0')) {
 					console.log(info);
 					return response.edit(wrap('16766720',':x: :white_small_square:  **Vídeo inválido!**'));
+				
 				}
 
 				info.requester = msg.author.id;
@@ -179,6 +249,7 @@ module.exports = function (client, options) {
 				// Queue the video.
 				response.edit(wrap('16766720',':musical_note: :white_small_square:  **Adicionado na playlist:** *' + info.title + '*')).then(() => {
 					queue.push(info);
+					msg.channel.send (peixe);
 					// Play if only one element in the queue.
 					if (queue.length === 1) executeQueue(msg, queue);
 				}).catch(console.log);
