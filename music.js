@@ -197,7 +197,7 @@ module.exports = function (client, options) {
 					    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
 					  },
 					  "author": {
-					    "name": "Pico",
+					    "name": "DJ Pico",
 					    "url": "https://youtube.com",
 					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
 					  },
