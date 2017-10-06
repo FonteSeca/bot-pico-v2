@@ -176,7 +176,7 @@ const embed = {
     "url": "https://cdn.discordapp.com/embed/avatars/0.png"
   },
   "author": {
-    "name": "Pico",
+    "name": info.title,
     "url": "https://discordapp.com",
     "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
   },
@@ -188,7 +188,7 @@ const embed = {
     },
     {
       "name": "Viado que pediu",
-      "value": msg.author.id,
+      "value": msg.author.id.toString(),
       "inline": true
     },
     {
