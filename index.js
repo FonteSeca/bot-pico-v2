@@ -217,7 +217,7 @@ Bot.on('message', msg => {
     SlapArray[11] = 'https://static.fjcdn.com/gifs/Bitch+slap+4+more+here+wwwyoutubecom+user+squabanime+and+here+thesquabnestcom+and+here+wwwfacebookcom+pages+squab+220040661488110+sk+timeline_161012_5187244.gif';
     var slapnum = Math.floor(Math.random() * 11);
     var slapImg = SlapArray[slapnum];
-    msg.channel.send(imageembed(COR_FRIEND, slapImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_FRIEND, slapImg, '**' + msg.author.username + '** deu um tapa em *' + msg.mentions.users.first().username + '*'));
   }
 
   function kiss(msg,suffix){
@@ -241,8 +241,11 @@ Bot.on('message', msg => {
 
   function treta(msg, suffix) {
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
+    
+    var dano = Math.floor(Math.random() * 30);
+    msg.channel.send(imageembed(COR_FRIEND, , '**' + msg.author.username + '** Chamou *' + msg.mentions.users.first().username + '* pro pau.'));
+    msg.channel.send(basicembed(COR_FRIEND, 'TRETA PORRA \r ETAA PORRRAA'));
 
-    msg.channel.send(imageembed(COR_BASE))
   }
 
   // COMANDOS Administrativos
