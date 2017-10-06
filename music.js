@@ -159,45 +159,7 @@ module.exports = function (client, options) {
 			return msg.channel.send(wrap('16766720',':x: :white_small_square:  Playlist cheia! Espere esvaziar'));
 		}
 		
-const embed = {
-  "title": "asdasdasd",
-  "description": ".",
-  "url": "https://discordapp.com",
-  "color": 16320777,
-  "timestamp": "2017-10-06T16:10:52.501Z",
-  "footer": {
-    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
-    "text": "Pico | YouTube"
-  },
-  "thumbnail": {
-    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
-  },
-  "image": {
-    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
-  },
-  "author": {
-    "name": info.title,
-    "url": "https://discordapp.com",
-    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
-  },
-  "fields": [
-    {
-      "name": "Duração",
-      "value": "00:00",
-      "inline": true
-    },
-    {
-      "name": "Viado que pediu",
-      "value": msg.author.id.toString(),
-      "inline": true
-    },
-    {
-      "name": "asd",
-      "value": "Seraaa",
-      "inline": true
-    }
-  ]
-};
+
 
 		// Get the video information.
 		msg.channel.send(wrap('16766720',':musical_note: :white_small_square:  **Procurando: ** *' + suffix +'*')).then(response => {
@@ -216,7 +178,45 @@ const embed = {
 				}
 
 				info.requester = msg.author.id;
-
+				const embed = {
+					  "title": "asdasdasd",
+					  "description": ".",
+					  "url": "https://discordapp.com",
+					  "color": 16320777,
+					  "timestamp": "2017-10-06T16:10:52.501Z",
+					  "footer": {
+					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+					    "text": "Pico | YouTube"
+					  },
+					  "thumbnail": {
+					    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+					  },
+					  "image": {
+					    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+					  },
+					  "author": {
+					    "name": info.title,
+					    "url": "https://discordapp.com",
+					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+					  },
+					  "fields": [
+					    {
+					      "name": "Duração",
+					      "value": info.duration,
+					      "inline": true
+					    },
+					    {
+					      "name": "Viado que pediu",
+					      "value": msg.author.id.toString(),
+					      "inline": true
+					    },
+					    {
+					      "name": "asd",
+					      "value": "Seraaa",
+					      "inline": true
+					    }
+					  ]
+				};
 				// Queue the video.
 				response.edit(wrap('16766720',':musical_note: :white_small_square:  **Adicionado na playlist:** *' + info.title + '*')).then(() => {
 					queue.push(info);
