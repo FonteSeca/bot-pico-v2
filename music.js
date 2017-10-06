@@ -207,7 +207,7 @@ module.exports = function (client, options) {
 					    },
 					    {
 					      "name": "Viado que pediu",
-					      "value": msg.author.id.toString(),
+					      "value": msg.author.toString(),
 					      "inline": true
 					    },
 					    {
