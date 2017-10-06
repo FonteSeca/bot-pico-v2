@@ -167,12 +167,14 @@ module.exports = function (client, options) {
 			if (!suffix.toLowerCase().startsWith('http')) {
 				searchstring = 'gvsearch1:' + suffix;
 				console.log(searchstring);
+				console.log("Linha 170");
 			}
 
 			YoutubeDL.getInfo(searchstring, ['-q', '--no-warnings', '--force-ipv4'], (err, info) => {
 				// Verify the info.
 				if (err || info.format_id === undefined || info.format_id.startsWith('0')) {
 					console.log(info);
+					console.log("Linha 179");
 					return response.edit(wrap('16766720',':x: :white_small_square:  **Vídeo inválido!**'));
 				
 				}
@@ -181,7 +183,7 @@ module.exports = function (client, options) {
 				const embed = {
 					  "title": info.title,
 					  "description": ".",
-					  "url": suffix,
+					  "url": "suffix",
 					  "color": 16320777,
 					  "timestamp": "2017-10-06T16:10:52.501Z",
 					  "footer": {
