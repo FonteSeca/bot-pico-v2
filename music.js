@@ -179,9 +179,9 @@ module.exports = function (client, options) {
 
 				info.requester = msg.author.id;
 				const embed = {
-					  "title": "asdasdasd",
+					  "title": info.title,
 					  "description": ".",
-					  "url": "https://discordapp.com",
+					  "url": suffix,
 					  "color": 16320777,
 					  "timestamp": "2017-10-06T16:10:52.501Z",
 					  "footer": {
@@ -195,8 +195,8 @@ module.exports = function (client, options) {
 					    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
 					  },
 					  "author": {
-					    "name": info.title,
-					    "url": "https://discordapp.com",
+					    "name": "Pico",
+					    "url": "https://youtube.com",
 					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
 					  },
 					  "fields": [
@@ -206,7 +206,7 @@ module.exports = function (client, options) {
 					      "inline": true
 					    },
 					    {
-					      "name": "Viado que pediu",
+					      "name": "Carinha que botou a musica",
 					      "value": msg.author.toString(),
 					      "inline": true
 					    },
