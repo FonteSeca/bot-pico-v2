@@ -243,7 +243,7 @@ Bot.on('message', msg => {
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
     
     var dano = Math.floor(Math.random() * 30);
-    msg.channel.send(imageembed(COR_FRIEND, , '**' + msg.author.username + '** Chamou *' + msg.mentions.users.first().username + '* pro pau.'));
+    msg.channel.send(basicembed(COR_FRIEND, '**' + msg.author.username + '** Chamou *' + msg.mentions.users.first().username + '* pro pau.'));
     msg.channel.send(basicembed(COR_FRIEND, 'TRETA PORRA \r ETAA PORRRAA'));
 
   }
