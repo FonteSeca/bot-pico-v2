@@ -159,15 +159,15 @@ module.exports = function (client, options) {
 			return msg.channel.send(wrap('16766720',':x: :white_small_square:  Playlist cheia! Espere esvaziar'));
 		}
 		
-		const embed = {
-  "title": "title ~~(did you know you can have markdown here too?)~~",
-  "description": "this supports [named links](https://discordapp.com) on top of the previously shown subset of markdown. ```\nyes, even code blocks```",
+const embed = {
+  "title": "asdasdasd",
+  "description": ".",
   "url": "https://discordapp.com",
-  "color": 14091107,
+  "color": 16320777,
   "timestamp": "2017-10-06T16:10:52.501Z",
   "footer": {
     "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
-    "text": "footer text"
+    "text": "Pico | YouTube"
   },
   "thumbnail": {
     "url": "https://cdn.discordapp.com/embed/avatars/0.png"
@@ -176,38 +176,31 @@ module.exports = function (client, options) {
     "url": "https://cdn.discordapp.com/embed/avatars/0.png"
   },
   "author": {
-    "name": "author name",
+    "name": "Pico",
     "url": "https://discordapp.com",
     "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
   },
   "fields": [
     {
-      "name": "🤔",
-      "value": "some of these properties have certain limits..."
-    },
-    {
-      "name": "😱",
-      "value": "try exceeding some of them!"
-    },
-    {
-      "name": "🙄",
-      "value": "an informative error should show up, and this view will remain as-is until all issues are fixed"
-    },
-    {
-      "name": "<:thonkang:219069250692841473>",
-      "value": "these last two",
+      "name": "Duração",
+      "value": "00:00",
       "inline": true
     },
     {
-      "name": "<:thonkang:219069250692841473>",
-      "value": "are inline fields",
+      "name": "Viado que pediu",
+      "value": msg.author.id,
+      "inline": true
+    },
+    {
+      "name": "asd",
+      "value": "Seraaa",
       "inline": true
     }
   ]
 };
 
 		// Get the video information.
-		msg.channel.send(wrap('16766720',':musical_note: :white_small_square:  **Procurando...**')).then(response => {
+		msg.channel.send(wrap('16766720',':musical_note: :white_small_square:  **Procurando: ** *' + suffix +'*')).then(response => {
 			var searchstring = suffix
 			if (!suffix.toLowerCase().startsWith('http')) {
 				searchstring = 'gvsearch1:' + suffix;
