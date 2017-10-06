@@ -89,7 +89,7 @@ Bot.on('message', msg => {
 
   function sorvetinho(msg, suffix) {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
-      msg.channel.send(basicembed(COR_EROU,'Use **!sorvetinho** *@user*'));
+      msg.channel.send(basicembed(COR_EROU,'Use **!sorvetinhoio** *@user*'));
     } else {
       const mention = msg.mentions.users.first();
       const mention_other = msg.mentions.users.last();
