@@ -4,8 +4,11 @@ const Bot = new Discord.Client();
 let PREFIX = '$';
 
 let COR_BASE = '16766720';
+let COR_LOVE = '16711875';
+let COR_FRIEND = '41471';
 let COR_EROU = '40447';
 let COR_ADM = '16711680';
+
 
 
 Bot.on('ready', () => {
@@ -67,6 +70,8 @@ Bot.on('message', msg => {
         return poke(msg, suffix);
       case 'slap':
         return slap(msg,suffix);
+      case 'treta':
+        return treta(msg,suffix);
 
       case 'ban':
         return ban(msg, suffix);
@@ -89,7 +94,7 @@ Bot.on('message', msg => {
 
   function sorvetinho(msg, suffix) {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
-      msg.channel.send(basicembed(COR_EROU,'Use **!sorvetinhoio** *@user*'));
+      msg.channel.send(basicembed(COR_EROU,'Use **!sorvetinho** *@user*'));
     } else {
       const mention = msg.mentions.users.first();
       const mention_other = msg.mentions.users.last();
@@ -169,7 +174,7 @@ Bot.on('message', msg => {
     HugArray[10] = '';
     var hugnum = Math.floor(Math.random() * 5);
     var hugImg = HugArray[hugnum];
-    msg.channel.send(imageembed(COR_BASE, hugImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_FRIEND, hugImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
   }
 
   function poke(msg,suffix){
@@ -190,7 +195,7 @@ Bot.on('message', msg => {
     PokeArray[10] = '';
     var pokenum = Math.floor(Math.random() * 7);
     var pokeImg = PokeArray[pokenum];
-    msg.channel.send(imageembed(COR_BASE, pokeImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_FRIEND, pokeImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
   }
 
   function slap(msg,suffix){
@@ -212,7 +217,7 @@ Bot.on('message', msg => {
     SlapArray[11] = 'https://static.fjcdn.com/gifs/Bitch+slap+4+more+here+wwwyoutubecom+user+squabanime+and+here+thesquabnestcom+and+here+wwwfacebookcom+pages+squab+220040661488110+sk+timeline_161012_5187244.gif';
     var slapnum = Math.floor(Math.random() * 11);
     var slapImg = SlapArray[slapnum];
-    msg.channel.send(imageembed(COR_BASE, slapImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_FRIEND, slapImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
   }
 
   function kiss(msg,suffix){
@@ -231,7 +236,13 @@ Bot.on('message', msg => {
     KissArray[10] = '';
     var kissnum = Math.floor(Math.random() * 6);
     var kissImg = KissArray[kissnum];
-    msg.channel.send(imageembed(COR_BASE, kissImg, '**' + msg.author.username + '** deu um beijo em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_LOVE, kissImg, '**' + msg.author.username + '** deu um beijo em *' + msg.mentions.users.first().username + '*'));
+  }
+
+  function treta(msg, suffix) {
+    if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
+
+    msg.channel.send(imageembed(COR_BASE))
   }
 
   // COMANDOS Administrativos
