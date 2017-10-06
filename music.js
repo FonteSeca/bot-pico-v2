@@ -183,7 +183,7 @@ module.exports = function (client, options) {
 				const embed = {
 					  "title": info.title,
 					  "description": ".",
-					  "url": "suffix",
+					  "url": "https://youtube.com",
 					  "color": 16320777,
 					  "timestamp": "2017-10-06T16:10:52.501Z",
 					  "footer": {
