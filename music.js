@@ -204,13 +204,8 @@ module.exports = function (client, options) {
 					      "inline": true
 					    },
 					    {
-					      "name": "Autor",
-					      "value": info.author,
-					      "inline": true
-					    },
-					    {
 					      "name": "Descrição",
-					      "value": info.description
+					      "value": info.author
 					    }
 					  ]
 				};
