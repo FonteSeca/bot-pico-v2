@@ -181,7 +181,7 @@ module.exports = function (client, options) {
 				const embed = {
 					  "title": info.title,
 					  "description": msg.author.toString(),
-					  "url": "https://youtube.com",
+					  "url": info.url,
 					  "color": 16320777,
 					  "timestamp": "2017-10-06T16:10:52.501Z",
 					  "footer": {
@@ -189,7 +189,7 @@ module.exports = function (client, options) {
 					    "text": "Pico | YouTube"
 					  },
 					  "thumbnail": {
-					    "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+					    "url": info.thumbnail
 					  },
 
 					  "author": {
