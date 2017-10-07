@@ -205,7 +205,7 @@ module.exports = function (client, options) {
 					    },
 					    {
 					      "name": "Descrição",
-					      "value": "Seraaa",
+					      "value": info.author,
 					      "inline": true
 					    }
 					  ]
