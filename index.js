@@ -195,7 +195,7 @@ Bot.on('message', msg => {
     PokeArray[10] = '';
     var pokenum = Math.floor(Math.random() * 7);
     var pokeImg = PokeArray[pokenum];
-    msg.channel.send(imageembed(COR_FRIEND, pokeImg, '**' + msg.author.username + '** deu um abraço em *' + msg.mentions.users.first().username + '*'));
+    msg.channel.send(imageembed(COR_FRIEND, pokeImg, '**' + msg.author.username + '** cutucou *' + msg.mentions.users.first().username + '*'));
   }
 
   function slap(msg,suffix){
