@@ -205,8 +205,7 @@ module.exports = function (client, options) {
 					    },
 					    {
 					      "name": "Descrição",
-					      "value": info.description,
-					      "inline": true
+					      "value": info.description
 					    }
 					  ]
 				};
