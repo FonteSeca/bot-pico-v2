@@ -180,7 +180,7 @@ module.exports = function (client, options) {
 				info.requester = msg.author.id;
 				const embed = {
 					  "title": info.title,
-					  "description": ".",
+					  "description": msg.author.toString(),
 					  "url": "https://youtube.com",
 					  "color": 16320777,
 					  "timestamp": "2017-10-06T16:10:52.501Z",
@@ -201,11 +201,6 @@ module.exports = function (client, options) {
 					    {
 					      "name": "Duração",
 					      "value": info.duration,
-					      "inline": true
-					    },
-					    {
-					      "name": "Carinha que botou a musica",
-					      "value": msg.author.toString(),
 					      "inline": true
 					    },
 					    {
