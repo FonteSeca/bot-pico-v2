@@ -204,8 +204,8 @@ module.exports = function (client, options) {
 					      "inline": true
 					    },
 					    {
-					      "name": "asd",
-					      "value": "Seraaa",
+					      "name": "Descrição",
+					      "value": info.description,
 					      "inline": true
 					    }
 					  ]
