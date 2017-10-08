@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 const music = require('./music.js');
 const Bot = new Discord.Client();
 
-const fs = require("fs");
+// const fs = require("fs");
 
-let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
+// let points = JSON.parse(fs.readFileSync("./points.json", "utf8"));
 
 let COR_BASE = '16766720';
 let COR_LOVE = '16711875';
@@ -327,33 +327,33 @@ Bot.on('message', msg => {
     msg.channel.send(imageembed(COR_BASE, kissImg, '**' + msg.author.username + '** deu um beijo em *' + msg.mentions.users.first().username + '*'));
   };
 
-  if (!points[msg.author.id]) points[msg.author.id] = {
-    points: 0,
-    level: 0
-  };
-  let userData = points[msg.author.id];
-  userData.points++;
+  // if (!points[msg.author.id]) points[msg.author.id] = {
+  //   points: 0,
+  //   level: 0
+  // };
+  // let userData = points[msg.author.id];
+  // userData.points++;
 
-  let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
+  // let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
 
-  if (userData.points > 20) {
-    userData.points = 0;
-    userData.Level++;
-    msg.reply(`Parabains! **${curLevel}**!`);
-  }
-  if (curLevel > userData.level) {
-    // Level up!
-    userData.level = curLevel;
-    msg.reply(`Parabains! **${curLevel}**!`); 
-  }
+  // if (userData.points > 20) {
+  //   userData.points = 0;
+  //   userData.Level++;
+  //   msg.reply(`Parabains! **${curLevel}**!`);
+  // }
+  // if (curLevel > userData.level) {
+  //   // Level up!
+  //   userData.level = curLevel;
+  //   msg.reply(`Parabains! **${curLevel}**!`); 
+  // }
 
-  if (msg.content.startsWith(PREFIX + "level")) {
-    msg.reply(`Você está com ${userData.level}, com ${userData.points} pontos.`);
-  }
-  fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-    console.log("The file was saved!");
-    if (err) console.error(err)
-  });
+  // if (msg.content.startsWith(PREFIX + "level")) {
+  //   msg.reply(`Você está com ${userData.level}, com ${userData.points} pontos.`);
+  // }
+  // fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+  //   console.log("The file was saved!");
+  //   if (err) console.error(err)
+  // });
 
 
 });
