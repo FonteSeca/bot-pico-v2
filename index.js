@@ -12,7 +12,7 @@ let COR_FRIEND = '41471';
 let COR_EROU = '40447';
 let COR_ADM = '16711680';
 
-
+let PREFIX = "$";
 
 Bot.on('ready', () => {
     console.log(`[Start] ${new Date()}`);
