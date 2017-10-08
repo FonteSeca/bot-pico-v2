@@ -188,7 +188,7 @@ module.exports = function (client, options) {
 					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
 					    "text": "Pico | YouTube"
 					  },
-					  "thumbnail": {
+					  "image": {
 					    "url": info.thumbnail
 					  },
 
@@ -205,7 +205,7 @@ module.exports = function (client, options) {
 					    },
 					    {
 					      "name": "Descrição",
-					      "value": info.author,
+					      "value": info.addit,
 					      "inline": true
 					    }
 					  ]
