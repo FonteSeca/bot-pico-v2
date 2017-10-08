@@ -12,6 +12,6 @@
     "sodium": "^2.0.1"
   },
   "scripts": {
-    "start": "micro"
+    "start": "node index.js"
   }
 }
