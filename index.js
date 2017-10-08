@@ -345,6 +345,7 @@ Bot.on('message', msg => {
     msg.reply(`Você está com ${userData.level}, com ${userData.points} pontos.`);
   }
   fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+    console.log("The file was saved!");
     if (err) console.error(err)
   });
 
