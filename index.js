@@ -338,11 +338,11 @@ Bot.on('message', msg => {
   if (curLevel > userData.level) {
     // Level up!
     userData.level = curLevel;
-    msg.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
+    msg.reply(`Parabains! **${curLevel}**!`);
   }
 
   if (msg.content.startsWith(PREFIX + "level")) {
-    msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
+    msg.reply(`Você está com ${userData.level}, com ${userData.points} pontos.`);
   }
   fs.writeFile("./points.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
