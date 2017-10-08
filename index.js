@@ -341,7 +341,7 @@ Bot.on('message', msg => {
     msg.reply(`You"ve leveled up to level **${curLevel}**! Ain"t that dandy?`);
   }
 
-  if (msg.content.startsWith(prefix + "level")) {
+  if (msg.content.startsWith(PREFIX + "level")) {
     msg.reply(`You are currently level ${userData.level}, with ${userData.points} points.`);
   }
   fs.writeFile("./points.json", JSON.stringify(points), (err) => {
