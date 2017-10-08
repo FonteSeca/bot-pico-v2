@@ -188,7 +188,7 @@ module.exports = function (client, options) {
 					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
 					    "text": "Pico | YouTube"
 					  },
-					  "image": {
+					  "thumbnail": {
 					    "url": info.thumbnail
 					  },
 
