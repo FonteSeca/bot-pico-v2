@@ -193,7 +193,7 @@ module.exports = function (client, options) {
 					  },
 
 					  "author": {
-					    "name": "DJ Pico",
+					    "name": "**DJ Pico** | Adicionado na playlist",
 					    "url": "https://youtube.com",
 					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
 					  },
