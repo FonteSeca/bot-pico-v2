@@ -335,10 +335,15 @@ Bot.on('message', msg => {
   userData.points++;
 
   let curLevel = Math.floor(0.1 * Math.sqrt(userData.points));
+  if (userData.points => 20) {
+    userData.points = 0;
+    userData.Level++;
+    msg.reply(`Parabains! **${curLevel}**!`);
+  }
   if (curLevel > userData.level) {
     // Level up!
     userData.level = curLevel;
-    msg.reply(`Parabains! **${curLevel}**!`);
+    msg.reply(`Parabains! **${curLevel}**!`); 
   }
 
   if (msg.content.startsWith(PREFIX + "level")) {
