@@ -3,7 +3,7 @@ const ytdl = require('ytdl-core');
 var skipinfo = new Array();
 let limitmusic = 30;
 
-let COR_YOUTUBE = '12255232';
+let COR_YOUTUBE = '16320777';
 /**
  * Takes a discord.js client and turns it into a music bot.
  * Thanks to 'derekmartinez18' for helping.
