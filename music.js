@@ -213,9 +213,8 @@ module.exports = function (client, options) {
 					  ]
 				};
 				// Queue the video.
-				response.edit(wrap(COR_YOUTUBE,':musical_note: :white_small_square:  **Adicionado na playlist:** *' + info.title + '*')).then(() => {
+				response.edit({embed}).then(() => {
 					queue.push(info);
-					msg.channel.send({embed});
 					// Play if only one element in the queue.
 					if (queue.length === 1) executeQueue(msg, queue);
 				}).catch(console.log);
