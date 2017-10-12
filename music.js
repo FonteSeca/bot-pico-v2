@@ -207,7 +207,7 @@ module.exports = function (client, options) {
 					    },
 					    {
 					      "name": "Descrição",
-					      "value": info.addit,
+					      "value": info.description,
 					      "inline": true
 					    }
 					  ]

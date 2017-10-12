@@ -14,6 +14,10 @@ let COR_ADM = '16711680';
 
 let PREFIX = "$";
 
+module.exports = () => ({
+  date: new Date
+})
+
 Bot.on('ready', () => {
     console.log(`[Start] ${new Date()}`);
     Bot.user.setPresence({ game: { name: 'Tremzinho da Alegria Simulator', type: 0 } });
