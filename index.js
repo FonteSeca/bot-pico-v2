@@ -252,9 +252,17 @@ Bot.on('message', msg => {
 
   function treta(msg, suffix) {
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
-    
-    var dano = Math.floor(Math.random() * 30);
     msg.channel.send(basicembed(COR_FRIEND, '**' + msg.author.username + '** Chamou *' + msg.mentions.users.first().username + '* pro pau.'));
+    var first_user = 100;
+    var second_user = 5;
+    var carinha = Math.floor(Math.random() * 2);
+    var dano = Math.floor(Math.random() * 30);
+    do {
+      first_user--;
+      msg.channel.send(basicembed(COR_BASE, 'Nha: ' + first_user));
+    }
+    while (first_user > 0 || second_user > 0);
+    
     msg.channel.send(basicembed(COR_FRIEND, 'TRETA PORRA \r ETAA PORRRAA'));
 
   }
