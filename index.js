@@ -255,10 +255,9 @@ Bot.on('message', msg => {
     msg.channel.send(basicembed(COR_FRIEND, '**' + msg.author.username + '** Chamou *' + msg.mentions.users.first().username + '* pro pau.'));
     var first_user = 100;
     var second_user = 100;
-    var carinha = Math.floor(Math.random() * 2);
-    var dano = Math.floor(Math.random() * 30);
+
     for (i = 1; i <=  2; i++) { 
-      
+      var dano = Math.floor(Math.random() * 30);
       if (i%2 == 0) {
         first_user -= dano;
         msg.channel.send(basicembed(COR_BASE, msg.author.username + ' perdeu ' + first_user + ' de vida'))  
