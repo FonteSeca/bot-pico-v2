@@ -257,18 +257,24 @@ Bot.on('message', msg => {
     var second_user = 100;
 
     for (i = 1; first_user > 0 || second_user > 0; i++) {
-      console.log(i);
+      if(first_user<0||second_user<0) {
+        var winner = first_user<0 ? 'segundo ganhou' : 'primeiro ganhou' 
+        return console.log('Finalizou, e o ' + winner)
+      }
+
       var dano = Math.floor(Math.random() * 30);
       if (i%2 == 0) {
         first_user -= dano;
-        msg.channel.send(basicembed(COR_BASE, msg.author.username + ' perdeu ' + first_user + ' de vida'))  
+        console.log('Primeiro levou dano de ' + dano + ', ainda tem vida de '+ first_user)
       } else if (i%2 == 1) {
-        second_user -= dano;
-        msg.channel.send(basicembed(COR_BASE, msg.mentions.users.first().username + ' perdeu ' + second_user + ' de vida'))  
+          second_user -= dano;
+        console.log('Segundo levou dano de ' + dano + ', ainda tem vida de '+ second_user)
       } else if (first_user < 0 || second_user < 0 ){
         i = 3;
         console.log('MORREU' + i + 'vida' + second_user);
       }
+
+    }
       
     }
     if (first_user <= 0) {
