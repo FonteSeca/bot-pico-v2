@@ -256,7 +256,7 @@ Bot.on('message', msg => {
     var first_user = 100;
     var second_user = 100;
 
-    for (i = 1; i <=  2; i++) { 
+    for (i = 1; i <  2; i++) { 
       var dano = Math.floor(Math.random() * 30);
       if (i%2 == 0) {
         first_user -= dano;
