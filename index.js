@@ -265,14 +265,18 @@ Bot.on('message', msg => {
       } else if (i%2 == 1) {
         second_user -= dano;
         msg.channel.send(basicembed(COR_BASE, msg.mentions.users.first().username + ' perdeu ' + second_user + ' de vida'))  
-      } else if (first_user < 0 || second_user < 0 ){
+      } else if (first_user <= 0){
+        i = 200;
+      } else if (second_user <= 0 ){
         i = 200;
       }
       
     }
     if (first_user <= 0) {
       msg.channel.send(basicembed(COR_FRIEND, msg.author.username + ' TOMOU NO MEIO DO FUREBIS'));
-    } else if (second_user <= 0) {
+    }
+
+    if (second_user <= 0) {
       msg.channel.send(basicembed(COR_FRIEND, msg.mentions.users.first().username + ' MAUAHUAH SE FODEU'));
     }
     
