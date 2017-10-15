@@ -257,7 +257,7 @@ Bot.on('message', msg => {
     var second_user = 100;
     var carinha = Math.floor(Math.random() * 2);
     var dano = Math.floor(Math.random() * 30);
-    for (i = 1; i < 100; i++) { 
+    for (i = 1; i ==  2; i++) { 
       
       if (i%2 == 0) {
         first_user -= dano;
@@ -266,7 +266,7 @@ Bot.on('message', msg => {
         second_user -= dano;
         msg.channel.send(basicembed(COR_BASE, msg.mentions.users.first().username + ' perdeu ' + second_user + ' de vida'))  
       } else if (first_user < 0 || second_user < 0 ){
-        i = 100;
+        i = 2;
       }
       
     }
