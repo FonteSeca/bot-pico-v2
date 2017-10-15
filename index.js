@@ -257,7 +257,7 @@ Bot.on('message', msg => {
     var second_user = 100;
     var carinha = Math.floor(Math.random() * 2);
     var dano = Math.floor(Math.random() * 30);
-    for (i = 1; i ==  2; i++) { 
+    for (i = 1; i <=  2; i++) { 
       
       if (i%2 == 0) {
         first_user -= dano;
