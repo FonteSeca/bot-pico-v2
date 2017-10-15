@@ -278,39 +278,7 @@ Bot.on('message', msg => {
     if (second_user <= 0) {
       msg.channel.send(basicembed(COR_FRIEND, msg.mentions.users.first().username + ' MAUAHUAH SE FODEU'));
     }
-    
-    const embed = {
-            "title": info.title,
-            "description": msg.author.toString(),
-            "url": info.url,
-            "color": COR_YOUTUBE,
-            "timestamp": "2017-10-06T16:10:52.501Z",
-            "footer": {
-              "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
-              "text": "Pico | YouTube"
-            },
-            "thumbnail": {
-              "url": info.thumbnail
-            },
-
-            "author": {
-              "name": "DJ Pico | Adicionado na playlist",
-              "url": "https://youtube.com",
-              "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
-            },
-            "fields": [
-              {
-                "name": "Duração",
-                "value": info.duration,
-                "inline": true
-              },
-              {
-                "name": "Descrição",
-                "value": info.description,
-                "inline": true
-              }
-            ]
-        };
+  
     
 
   }
