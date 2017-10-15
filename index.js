@@ -266,7 +266,7 @@ Bot.on('message', msg => {
         second_user -= dano;
         msg.channel.send(basicembed(COR_BASE, msg.mentions.users.first().username + ' perdeu ' + second_user + ' de vida'))  
       } else if (first_user < 0 || second_user < 0 ){
-        i = 2;
+        i = 3;
         console.log(i);
       }
       
