@@ -254,14 +254,22 @@ Bot.on('message', msg => {
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
     msg.channel.send(basicembed(COR_FRIEND, '**' + msg.author.username + '** Chamou *' + msg.mentions.users.first().username + '* pro pau.'));
     var first_user = 100;
-    var second_user = 5;
+    var second_user = 100;
     var carinha = Math.floor(Math.random() * 2);
     var dano = Math.floor(Math.random() * 30);
-    do {
-      first_user--;
-      msg.channel.send(basicembed(COR_BASE, 'Nha: ' + first_user));
+    for (i = 1; i < 100; i++) { 
+      
+      if (i%2 == 0) {
+        first_user -= dano;
+        msg.channel.send(basicembed(COR_BASE, msg.author.username + ' perdeu ' + first_user + ' de vida'))  
+      } else if (i%2 == 1) {
+        second_user -= dano;
+        msg.channel.send(basicembed(COR_BASE, msg.mentions.users.first().username + ' perdeu ' + second_user + ' de vida'))  
+      } else if (first_user < 0 || second_user < 0 ){
+        i = 100;
+      }
+      
     }
-    while (first_user > 0 || second_user > 0);
     
     msg.channel.send(basicembed(COR_FRIEND, 'TRETA PORRA \r ETAA PORRRAA'));
 
