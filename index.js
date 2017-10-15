@@ -270,8 +270,13 @@ Bot.on('message', msg => {
       }
       
     }
+    if (first_user <= 0) {
+      msg.channel.send(basicembed(COR_FRIEND, msg.author.username + ' TOMOU NO MEIO DO FUREBIS'));
+    } else if (second_user <= 0) {
+      msg.channel.send(basicembed(COR_FRIEND, msg.mentions.users.first().username + ' MAUAHUAH SE FODEU'));
+    }
     
-    msg.channel.send(basicembed(COR_FRIEND, 'TRETA PORRA \r ETAA PORRRAA'));
+    
 
   }
 
