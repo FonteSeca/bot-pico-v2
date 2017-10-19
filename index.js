@@ -333,7 +333,7 @@ Bot.on('message', msg => {
 	}
 
   function help(msg, suffix) {
-    msg.author.sendMessage("asdasdasd");
+    channel.sendMessage('asdasdasd');
   }
 
 
