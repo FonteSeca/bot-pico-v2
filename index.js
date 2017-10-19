@@ -90,6 +90,8 @@ Bot.on('message', msg => {
         return kick(msg, suffix);
       case 'purge':
         return purge(msg, suffix);
+      case 'help':
+        return help(msg, suffix);
 
     }
   }
@@ -330,6 +332,10 @@ Bot.on('message', msg => {
         }
 	}
 
+  function help(msg, suffix) {
+    msg.author.sendMessage("asdasdasd");
+  }
+
 
   function kkiss(msg,suffix){
     if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!kiss** *@user*'));
@@ -418,3 +424,4 @@ function imageembed(color,image,text) {
 
 
 Bot.login(process.env.token);
+Bot.login(process.env.DATABASE_URL);
