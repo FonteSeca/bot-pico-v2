@@ -208,7 +208,7 @@ module.exports = function (client, options) {
 					    },
 					    {
 					      "name": "Nhanahanh",
-					      "value": info.user,
+					      "value": info.duration,
 					      "inline": true
 					    }
 					  ]
