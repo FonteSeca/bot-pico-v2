@@ -258,10 +258,10 @@ Bot.on('message', msg => {
 
   function ship(msg, suffix) {
     const mention = msg.mentions.users.first();
-    const strmention = mention.username.toString();
+    const strmention = mention.username;
     const strname = mention.length();
     const mention_other = msg.mentions.users.last();
-    const strmention_other = mention_other.username.toString();
+    const strmention_other = mention_other.username;
     const strname_other = mention.length();
     const strtotal = (strname + strname_other)/2;
     const ship_trimOne = strmention.substring(4);
