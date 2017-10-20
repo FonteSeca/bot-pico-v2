@@ -295,33 +295,34 @@ Bot.on('message', msg => {
     };
 
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
-    msg.channel.send({embed});
+    msg.channel.send({embed}).then(responder => {
 
-    for (i = 1; hp_first_user > 0 || hp_second_user > 0; i++) {
-      if(hp_first_user<0||hp_second_user<0) {
-        var winner = first_user<0 ? 'segundo ganhou' : 'primeiro ganhou' 
-        return console.log('Finalizou, e o ' + winner)
-      }
-
-      var dano = Math.floor(Math.random() * 30);
-      if (i%2 == 0) {
-        hp_first_user -= dano;
-        if (hp_first_user < 0) {
-          hp_first_user = 0;
+      for (i = 1; hp_first_user > 0 || hp_second_user > 0; i++) {
+        if(hp_first_user<0||hp_second_user<0) {
+          var winner = first_user<0 ? 'segundo ganhou' : 'primeiro ganhou' 
+          return console.log('Finalizou, e o ' + winner)
         }
-        Bot.edit({embed});
-      } else if (i%2 == 1) {
-          hp_second_user -= dano;
-          if (hp_second_user < 0 ) {
-            hp_second_user = 0;
-          }
-          Bot.edit({embed});
-      } else if (hp_first_user <= 0 || hp_second_user <= 0 ){
-        i = 3;
-        console.log('MORREU' + i + 'vida' + hp_second_user);
-      }
 
-    }
+        var dano = Math.floor(Math.random() * 30);
+        if (i%2 == 0) {
+          hp_first_user -= dano;
+          if (hp_first_user < 0) {
+            hp_first_user = 0;
+          }
+          responder.edit({embed});
+        } else if (i%2 == 1) {
+            hp_second_user -= dano;
+            if (hp_second_user < 0 ) {
+              hp_second_user = 0;
+            }
+            responder.edit({embed});
+        } else if (hp_first_user <= 0 || hp_second_user <= 0 ){
+          i = 3;
+          console.log('MORREU' + i + 'vida' + hp_second_user);
+        }
+
+      }
+    });
       
     if (hp_first_user <= 0) {
       msg.channel.send(basicembed(COR_FRIEND, msg.author.username + ' TOMOU NO MEIO DO FUREBIS'));
