@@ -423,4 +423,3 @@ function imageembed(color,image,text) {
 
 
 Bot.login(process.env.token);
-Bot.login(process.env.DATABASE_URL);
