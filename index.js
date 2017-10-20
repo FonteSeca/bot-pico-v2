@@ -370,12 +370,12 @@ Bot.on('message', msg => {
 	}
 
   function help(msg, suffix) {
-    channel.sendMessage('asdasdasd');
+    msg.author.send(basicembed(COR_BASE, 'çalksça'));
   }
 
   function fdp(msg, suffix) {
-    let nha = msg.mentions.users.first();
-    msg.nha.send(basicembed(COR_BASE, 'çalksça'));
+
+    msg.author.send(basicembed(COR_BASE, 'çalksça'));
   }
 
 
