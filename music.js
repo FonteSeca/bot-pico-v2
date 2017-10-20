@@ -183,7 +183,7 @@ module.exports = function (client, options) {
 				info.requester = msg.author.id;
 				const embed = {
 					  "title": info.title,
-					  "description": msg.author.toString(),
+					  "description": ,
 					  "url": info.url,
 					  "color": COR_YOUTUBE,
 					  "timestamp": "2017-10-06T16:10:52.501Z",
@@ -196,7 +196,7 @@ module.exports = function (client, options) {
 					  },
 
 					  "author": {
-					    "name": "DJ Pico | Adicionado na playlist",
+					    "name": "DJ Pico | " + msg.author.toString().username + " adicionou na playlist",
 					    "url": "https://youtube.com",
 					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
 					  },
@@ -207,8 +207,8 @@ module.exports = function (client, options) {
 					      "inline": true
 					    },
 					    {
-					      "name": "Descrição",
-					      "value": "nha",
+					      "name": "Nhanahanh",
+					      "value": info.author.user,
 					      "inline": true
 					    }
 					  ]
