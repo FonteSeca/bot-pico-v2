@@ -257,14 +257,9 @@ Bot.on('message', msg => {
   }
 
   function ship(msg, suffix) {
-    const mention = msg.mentions.users.first().username.length;
-    const mention_other = msg.mentions.users.last().username.length;
-    const strtotal = (strname + strname_other)/2;
-    const ship_trimOne = strmention.substring(4);
-    const ship_trimTwo = strmention_other.substring(4);
-    const ship_name = ship_trimOne + ship_trimTwo;
+    const shipname = msg.mentions.users.first().username.replace(/[^a-z1-90]/gi, '').charAt(0).toUpperCase() + msg.mentions.users.first().username.replace(/[^a-z1-90]/gi, '').slice(1).slice(0,(msg.mentions.users.first().username.length / 2 + 1)).trim().toLowerCase() + msg.mentions.users.last().username.replace(/[^a-z1-90]/gi, '').slice(msg.mentions.users.last().username.length/2 - 2).trim().toLowerCase()
 
-    msg.channel.send(basicembed(COR_LOVE, ship_name));
+    msg.channel.send(basicembed(COR_LOVE, shipname));
   }
 
   function treta(msg, suffix) {
