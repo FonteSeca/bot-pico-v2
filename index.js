@@ -76,7 +76,9 @@ Bot.on('message', msg => {
       case 'hug':
         return hug(msg, suffix);
       case 'kiss':
-          return kiss(msg, suffix);
+        return kiss(msg, suffix);
+      case 'ship':
+        return ship(msg, suffix);
       case 'poke':
         return poke(msg, suffix);
       case 'slap':
@@ -252,6 +254,21 @@ Bot.on('message', msg => {
     var kissnum = Math.floor(Math.random() * 6);
     var kissImg = KissArray[kissnum];
     msg.channel.send(imageembed(COR_LOVE, kissImg, '**' + msg.author.username + '** deu um beijo em *' + msg.mentions.users.first().username + '*'));
+  }
+
+  function ship(msg, suffix) {
+    const mention = msg.mentions.users.first();
+    const strmention = mention.username.toString();
+    const strname = mention.length();
+    const mention_other = msg.mentions.users.last();
+    const strmention_other = mention_other.username.toString();
+    const strname_other = mention.length();
+    const strtotal = (strname + strname_other)/2;
+    const ship_trimOne = strmention.substring(4);
+    const ship_trimTwo = strmention_other.substring(4);
+    const ship_name = ship_trimOne + ship_trimTwo;
+
+    msg.channel.send(basicembed(COR_LOVE ship_name));
   }
 
   function treta(msg, suffix) {
