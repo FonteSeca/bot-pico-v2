@@ -92,6 +92,8 @@ Bot.on('message', msg => {
         return purge(msg, suffix);
       case 'help':
         return help(msg, suffix);
+      case 'fdp':
+        return fdp(msg, suffix);
 
     }
   }
@@ -261,8 +263,8 @@ Bot.on('message', msg => {
     const embed = {
       color: COR_FRIEND,
       author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
+        name: bot.user.username,
+        icon_url: bot.user.avatarURL
       },
       title: "TRETA POAR",
       url: "http://google.com",
@@ -280,7 +282,7 @@ Bot.on('message', msg => {
       ],
       timestamp: new Date(),
       footer: {
-        icon_url: client.user.avatarURL,
+        icon_url: bot.user.avatarURL,
         text: "© Pico | Treta News"
       }
     };
@@ -369,6 +371,10 @@ Bot.on('message', msg => {
 
   function help(msg, suffix) {
     channel.sendMessage('asdasdasd');
+  }
+
+  function fdp(msg, suffix) {
+    member.send(msg);
   }
 
 
