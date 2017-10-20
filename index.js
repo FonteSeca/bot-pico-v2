@@ -253,42 +253,73 @@ Bot.on('message', msg => {
   }
 
   function treta(msg, suffix) {
-    if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
-    msg.channel.send(basicembed(COR_FRIEND, '**' + msg.author.username + '** Chamou *' + msg.mentions.users.first().username + '* pro pau.'));
-    var first_user = 100;
-    var second_user = 100;
+    const first_user = msg.author.username;
+    const second_user = msg.mentions.users.first().username;
+    var hp_first_user = 100;
+    var hp_second_user = 100;
+    
+    const embed = {
+      color: COR_FRIEND,
+      author: {
+        name: client.user.username,
+        icon_url: client.user.avatarURL
+      },
+      title: "TRETA POAR",
+      url: "http://google.com",
+      description: "**" + first_user + "** Chamou *" + second_user + "* pro pau.",
+      fields: [{
+        name: "**" + first_user + "**",
+        value: hp_first_user,
+        "inline": true
+      },
+      {
+        name: "**" + second_user + "**",
+        value: hp_second_user,
+        "inline": true
+      }
+      ],
+      timestamp: new Date(),
+      footer: {
+        icon_url: client.user.avatarURL,
+        text: "© Pico | Treta News"
+      }
+    };
 
-    for (i = 1; first_user > 0 || second_user > 0; i++) {
-      if(first_user<0||second_user<0) {
+    if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
+    msg.channel.send(basicembed(COR_FRIEND, ));
+
+
+    for (i = 1; hp_first_user > 0 || hp_second_user > 0; i++) {
+      if(hp_first_user<0||hp_second_user<0) {
         var winner = first_user<0 ? 'segundo ganhou' : 'primeiro ganhou' 
         return console.log('Finalizou, e o ' + winner)
       }
 
       var dano = Math.floor(Math.random() * 30);
       if (i%2 == 0) {
-        first_user -= dano;
-        if (first_user < 0) {
-          first_user = 0;
+        hp_first_user -= dano;
+        if (hp_first_user < 0) {
+          hp_first_user = 0;
         }
-        msg.channel.send(basicembed(COR_FRIEND, msg.author.username + ' levou dano de ' + dano + ', ainda tem vida de '+ first_user));
+        msg.channel.send(basicembed(COR_FRIEND, msg.author.username + ' levou dano de ' + dano + ', ainda tem vida de '+ hp_first_user));
       } else if (i%2 == 1) {
-          second_user -= dano;
-          if (second_user < 0 ) {
-            second_user = 0;
+          hp_second_user -= dano;
+          if (hp_second_user < 0 ) {
+            hp_second_user = 0;
           }
-          msg.channel.send(basicembed(COR_FRIEND, msg.mentions.users.first().username + ' levou dano de ' + dano + ', ainda tem vida de '+ second_user));
-      } else if (first_user <= 0 || second_user <= 0 ){
+          msg.channel.send(basicembed(COR_FRIEND, msg.mentions.users.first().username + ' levou dano de ' + dano + ', ainda tem vida de '+ hp_second_user));
+      } else if (hp_first_user <= 0 || hp_second_user <= 0 ){
         i = 3;
-        console.log('MORREU' + i + 'vida' + second_user);
+        console.log('MORREU' + i + 'vida' + hp_second_user);
       }
 
     }
       
-    if (first_user <= 0) {
+    if (hp_first_user <= 0) {
       msg.channel.send(basicembed(COR_FRIEND, msg.author.username + ' TOMOU NO MEIO DO FUREBIS'));
     }
 
-    if (second_user <= 0) {
+    if (hp_second_user <= 0) {
       msg.channel.send(basicembed(COR_FRIEND, msg.mentions.users.first().username + ' MAUAHUAH SE FODEU'));
     }
   
