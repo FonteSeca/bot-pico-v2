@@ -268,7 +268,7 @@ Bot.on('message', msg => {
     const ship_trimTwo = strmention_other.substring(4);
     const ship_name = ship_trimOne + ship_trimTwo;
 
-    msg.channel.send(basicembed(COR_LOVE ship_name));
+    msg.channel.send(basicembed(COR_LOVE, ship_name));
   }
 
   function treta(msg, suffix) {
