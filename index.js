@@ -375,7 +375,7 @@ Bot.on('message', msg => {
         msg.channel.send(imageembed(COR_ADM,'https://66.media.tumblr.com/588ae4ae98fa9ab56afb8e482ce34f40/tumblr_nyhaxppJAy1unvqljo6_500.gif' , msg.mentions.users.first().toString() + ' levou martelão.'))
       }
     } else {
-      msg.channel.send(basicembed(COR_ADM, '*' + msg.author.toString().username + '* não possui permissão'))
+      msg.channel.send(basicembed(COR_ADM, '*' + msg.author.username + '* não possui permissão'))
     }
   }
 
@@ -390,7 +390,7 @@ Bot.on('message', msg => {
         msg.channel.send(imageembed(COR_ADM,'https://66.media.tumblr.com/588ae4ae98fa9ab56afb8e482ce34f40/tumblr_nyhaxppJAy1unvqljo6_500.gif' , msg.mentions.users.first().toString() + ' saiu do servidor na força énoz.'))
       }
     } else {
-      msg.channel.send(basicembed(COR_ADM, '*' + msg.author.toString().username + '* não possui permissão'))
+      msg.channel.send(basicembed(COR_ADM, '*' + msg.author.username + '* não possui permissão'))
     }
   }
 
