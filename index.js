@@ -278,7 +278,6 @@ Bot.on('message', msg => {
 
     }
       
-    }
     if (first_user <= 0) {
       msg.channel.send(basicembed(COR_FRIEND, msg.author.username + ' TOMOU NO MEIO DO FUREBIS'));
     }
