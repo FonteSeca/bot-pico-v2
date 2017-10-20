@@ -375,7 +375,7 @@ Bot.on('message', msg => {
 
   function fdp(msg, suffix) {
     let nha = msg.mentions.users.first();
-    nha.send(msg);
+    msg.nha.send(basicembed(COR_BASE, 'çalksça'));
   }
 
 
