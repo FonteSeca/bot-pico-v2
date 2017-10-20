@@ -181,7 +181,7 @@ module.exports = function (client, options) {
 				}
 
 				info.requester = msg.author.id;
-				console.log('uploaded by:', info.author.name);
+				
 				const embed = {
 					  "title": info.title,
 					  "description": "asda",
@@ -209,7 +209,7 @@ module.exports = function (client, options) {
 					    },
 					    {
 					      "name": "Nhanahanh",
-					      "value": "info.author.name",
+					      "value": util.getAuthor(name),
 					      "inline": true
 					    }
 					  ]
