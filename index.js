@@ -277,7 +277,7 @@ Bot.on('message', msg => {
             second_user = 0;
           }
           msg.channel.send(basicembed(COR_FRIEND, msg.mentions.users.first().username + ' levou dano de ' + dano + ', ainda tem vida de '+ second_user));
-      } else if (first_user < 0 || second_user < 0 ){
+      } else if (first_user <= 0 || second_user <= 0 ){
         i = 3;
         console.log('MORREU' + i + 'vida' + second_user);
       }
