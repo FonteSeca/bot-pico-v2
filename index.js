@@ -263,8 +263,8 @@ Bot.on('message', msg => {
     const embed = {
       color: COR_FRIEND,
       author: {
-        name: bot.user.username,
-        icon_url: bot.user.avatarURL
+        name: Bot.user.username,
+        icon_url: Bot.user.avatarURL
       },
       title: "TRETA POAR",
       url: "http://google.com",
@@ -282,7 +282,7 @@ Bot.on('message', msg => {
       ],
       timestamp: new Date(),
       footer: {
-        icon_url: bot.user.avatarURL,
+        icon_url: Bot.user.avatarURL,
         text: "© Pico | Treta News"
       }
     };
