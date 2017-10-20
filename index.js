@@ -267,10 +267,10 @@ Bot.on('message', msg => {
       var dano = Math.floor(Math.random() * 30);
       if (i%2 == 0) {
         first_user -= dano;
-        console.log('Primeiro levou dano de ' + dano + ', ainda tem vida de '+ first_user)
+        msg.channel.send(basicembed(COR_FRIEND, 'Primeiro levou dano de ' + dano + ', ainda tem vida de '+ first_user));
       } else if (i%2 == 1) {
           second_user -= dano;
-        console.log('Segundo levou dano de ' + dano + ', ainda tem vida de '+ second_user)
+          msg.channel.send(basicembed(COR_FRIEND, 'Segundo levou dano de ' + dano + ', ainda tem vida de '+ second_user));
       } else if (first_user < 0 || second_user < 0 ){
         i = 3;
         console.log('MORREU' + i + 'vida' + second_user);
