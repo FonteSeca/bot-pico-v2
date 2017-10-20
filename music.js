@@ -1,5 +1,6 @@
 const YoutubeDL = require('youtube-dl');
 const ytdl = require('ytdl-core');
+const stream = require('youtube-audio-stream');
 var skipinfo = new Array();
 let limitmusic = 30;
 
