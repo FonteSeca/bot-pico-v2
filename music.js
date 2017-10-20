@@ -480,7 +480,7 @@ module.exports = function (client, options) {
 
 			// Play the video.
 			msg.channel.send(wrap(COR_YOUTUBE,':arrow_forward: :white_small_square:  **Tocando agora:** *' + video.title + '*')).then(() => {
-				let dispatcher = connection.playStream(ytdl(video.webpage_url), {highWaterMark: 163840, retries: 100}, {seek: 1, volume: (DEFAULT_VOLUME/100)});
+				let dispatcher = connection.playStream(ytdl(video.webpage_url, {filter: 'audioonly'}), {seek: 0, volume: (DEFAULT_VOLUME/100)});
 
 				connection.on('error', (error) => {
 					// Skip to the next song.
