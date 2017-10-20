@@ -258,7 +258,6 @@ Bot.on('message', msg => {
 
   function ship(msg, suffix) {
     const shipname = msg.mentions.users.first().username.replace(/[^a-z1-90]/gi, '').charAt(0).toUpperCase() + msg.mentions.users.first().username.replace(/[^a-z1-90]/gi, '').slice(1).slice(0,(msg.mentions.users.first().username.length / 2 + 1)).trim().toLowerCase() + msg.mentions.users.last().username.replace(/[^a-z1-90]/gi, '').slice(msg.mentions.users.last().username.length/2 - 2).trim().toLowerCase()
-
     msg.channel.send(basicembed(COR_LOVE, shipname));
   }
 
