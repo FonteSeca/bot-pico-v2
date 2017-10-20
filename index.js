@@ -374,7 +374,8 @@ Bot.on('message', msg => {
   }
 
   function fdp(msg, suffix) {
-    member.send(msg);
+    let nha = msg.mentions.users.first();
+    nha.send(msg);
   }
 
 
