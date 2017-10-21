@@ -268,7 +268,7 @@ Bot.on('message', msg => {
     var hp_second_user = 100;
     
 
-        const embed = 
+        const embed = {
           color: COR_FRIEND,
           author: {
             name: Bot.user.username,
