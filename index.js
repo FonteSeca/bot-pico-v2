@@ -268,34 +268,8 @@ Bot.on('message', msg => {
     var hp_second_user = 100;
     
 
-        const embed = {
-          color: COR_FRIEND,
-          author: {
-            name: Bot.user.username,
-            icon_url: Bot.user.avatarURL
-          },
-          title: "TRETA POAR",
-          url: "http://pico.xzy",
-          description: "**" + first_user + "** Chamou *" + second_user + "* pro pau.",
-          fields: [{
-            name: "**" + first_user + "**",
-            value: hp_first_user,
-            "inline": true
-          },
-          {
-            name: "**" + second_user + "**",
-            value: hp_second_user,
-            "inline": true
-          }
-          ],
-          timestamp: new Date(),
-          footer: {
-            icon_url: Bot.user.avatarURL,
-            text: "© Pico | Treta News"
-      }
-    };
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
-    msg.channel.send({embed}).then(responder => {
+    msg.channel.send('**' + first_user + '** Chamou **' + second_user + '** pro pau').then(responder => {
 
       for (i = 1; hp_first_user > 0 || hp_second_user > 0; i++) {
         const embeded = {
