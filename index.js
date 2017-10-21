@@ -269,7 +269,7 @@ Bot.on('message', msg => {
     
 
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
-    msg.channel.send('**' + first_user + '** Chamou **' + second_user + '** pro pau').then(responder => {
+    msg.channel.send(basicembed(COR_FRIEND, '**' + first_user + '** Chamou **' + second_user + '** pro pau')).then(responder => {
 
       for (i = 1; hp_first_user > 0 || hp_second_user > 0; i++) {
         const embeded = {
