@@ -324,6 +324,8 @@ Bot.on('message', msg => {
             text: "© Pico | Treta News"
           }
         };
+        console.log('HP do Primeiro: ' + hp_first_user);
+        console.log('HP do Segundo: ' + hp_second_user);
         if(hp_first_user<0||hp_second_user<0) {
           var winner = first_user<0 ? 'segundo ganhou' : 'primeiro ganhou' 
           return console.log('Finalizou, e o ' + winner)
