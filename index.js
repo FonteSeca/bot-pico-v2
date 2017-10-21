@@ -335,13 +335,13 @@ Bot.on('message', msg => {
           if (hp_first_user < 0) {
             hp_first_user = 0;
           }
-          responder.edit({embeded});
+          msg.channel.send({embed});
         } else if (i%2 == 1) {
             hp_second_user -= dano;
             if (hp_second_user < 0 ) {
               hp_second_user = 0;
             }
-            responder.edit({embeded});
+            msg.channel.send({embed});
         } else if (hp_first_user <= 0 || hp_second_user <= 0 ){
           i = 3;
           console.log('MORREU' + i + 'vida' + hp_second_user);
