@@ -102,8 +102,8 @@ Bot.on('message', msg => {
 
 
   function isAdmin(member) {
-		return member.hasPermission("ADMINISTRATOR");
-	}
+    return member.hasPermission("ADMINISTRATOR");
+  }
 
   function say(msg, suffix) {
     msg.channel.send(suffix);
@@ -123,10 +123,10 @@ Bot.on('message', msg => {
     if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 ) {
       msg.channel.send(basicembed(COR_EROU, 'Use **!gelinho** *@user*'));
     } else if (msg.author.toString() == msg.mentions.users.first.toString()) {
-	    const mention = msg.mentions.users.first();
+      const mention = msg.mentions.users.first();
       msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '**' + mention.username + '**, se fodeu com gelinho.'));
     } else {
-	    const mention = msg.mentions.users.first();
+      const mention = msg.mentions.users.first();
       msg.channel.send(imageembed(COR_BASE,'https://s-media-cache-ak0.pinimg.com/originals/ca/d8/61/cad861052f8721de300a49221d5c98c1.jpg', '**' + mention.username + '**, me foda com um gelinho.'));
     }
 
@@ -316,11 +316,13 @@ msg.channel.send({embed}).then(resposta => {
 
 for (i = 1; info[1].life>0||info[2].life>0; i++) { 
 
-sleep(configmsg.sleeptime,function(){
+  // sleep zzzzzzzzz
+  var now = new Date().getTime();
+  while(new Date().getTime() < now + configmsgs.sleeptime) {}
 
   // se rolar ganhador
-	if(info[1].life<0||info[2].life<0) {
-		var winner = info[1].life<0 ? info[2].name : info[1].name; 
+  if(info[1].life<0||info[2].life<0) {
+    var winner = info[1].life<0 ? info[2].name : info[1].name; 
           const embed = {
             "title": configmsgs.title,
             "description": ":medal: **"+winner+"** ganhou a batalha!",
@@ -348,7 +350,7 @@ sleep(configmsg.sleeptime,function(){
               }
             ]
           };
-		return resposta.edit({embed})}
+    return resposta.edit({embed})}
 
 
       var dano = Math.floor(Math.random() * 30);
@@ -384,7 +386,7 @@ sleep(configmsg.sleeptime,function(){
           };
         resposta.edit({embed})
       } else if (i%2 == 1) {
-      	info[2].life -= dano;
+        info[2].life -= dano;
 
           const embed = {
             "title": configmsgs.title,
@@ -416,7 +418,7 @@ sleep(configmsg.sleeptime,function(){
         resposta.edit({embed})
       }
 
-    })
+
  }
 });
   }
@@ -453,14 +455,14 @@ sleep(configmsg.sleeptime,function(){
     }
   }
 
-	function purge(msg, suffix) {
-	        if (msg.member.hasPermission("MANAGE_MESSAGES")) {
+  function purge(msg, suffix) {
+          if (msg.member.hasPermission("MANAGE_MESSAGES")) {
             msg.channel.fetchMessages()
                .then(function(list){
                     msg.channel.bulkDelete(list);
                 }, function(err){msg.channel.send("ERROR: ERROR CLEARING CHANNEL.")})
         }
-	}
+  }
 
   function help(msg, suffix) {
     msg.author.send(basicembed(COR_BASE, 'çalksça'));
@@ -534,20 +536,13 @@ sleep(configmsg.sleeptime,function(){
 });
 
 music(Bot, {
-	prefix: PREFIX,        // Prefix of '-'.
-	global: false,      // Server-specific queues.
-	maxQueueSize: 20,   // Maximum queue size of 10.
-	clearInvoker: false, // If permissions applicable, allow the bot to delete the messages that invoke it (start with prefix)
+  prefix: PREFIX,        // Prefix of '-'.
+  global: false,      // Server-specific queues.
+  maxQueueSize: 20,   // Maximum queue size of 10.
+  clearInvoker: false, // If permissions applicable, allow the bot to delete the messages that invoke it (start with prefix)
     channel: ''    // Name of voice channel to join. If omitted, will instead join user's voice channel.
 });
 
-function sleep(time,callback) {
-  var now = new Date().getTime();
-  while(new Date().getTime() < now + time) {
-   // do nothing
-  }
-  callback();
-}
 
 function basicembed(color,text) {
   return {embed: {
