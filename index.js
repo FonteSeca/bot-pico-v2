@@ -316,13 +316,7 @@ msg.channel.send({embed}).then(resposta => {
 
 for (i = 1; info[1].life>0||info[2].life>0; i++) { 
 
-  // sleep zzzzzzzzzzz
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > configmsgs.sleeptime){
-      break;
-    }
-  }
+sleep(configmsg.sleeptime,function(){
 
   // se rolar ganhador
 	if(info[1].life<0||info[2].life<0) {
@@ -423,6 +417,7 @@ for (i = 1; info[1].life>0||info[2].life>0; i++) {
       }
 
     }
+ }
 });
   }
 
@@ -545,6 +540,14 @@ music(Bot, {
 	clearInvoker: false, // If permissions applicable, allow the bot to delete the messages that invoke it (start with prefix)
     channel: ''    // Name of voice channel to join. If omitted, will instead join user's voice channel.
 });
+
+function sleep(time,callback) {
+  var now = new Date().getTime();
+  while(new Date().getTime() < now + time) {
+   // do nothing
+  }
+  callback();
+}
 
 function basicembed(color,text) {
   return {embed: {
