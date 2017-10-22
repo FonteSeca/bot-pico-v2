@@ -262,106 +262,168 @@ Bot.on('message', msg => {
   }
 
   function treta(msg, suffix) {
-    const first_user = msg.author.username;
-    const second_user = msg.mentions.users.first().username;
-    var hp_first_user = 100;
-    var hp_second_user = 100;
-    
-
-        const embed = {
-          color: COR_FRIEND,
-          author: {
-            name: Bot.user.username,
-            icon_url: Bot.user.avatarURL
-          },
-          title: "TRETA POAR",
-          url: "http://pico.xzy",
-          description: "**" + first_user + "** Chamou *" + second_user + "* pro pau.",
-          fields: [{
-            name: "**" + first_user + "**",
-            value: hp_first_user,
-            "inline": true
-          },
-          {
-            name: "**" + second_user + "**",
-            value: hp_second_user,
-            "inline": true
-          }
-          ],
-          timestamp: new Date(),
-          footer: {
-            icon_url: Bot.user.avatarURL,
-            text: "© Pico | Treta News"
-      }
-    };
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
-    msg.channel.send({embed}).then(responder => {
-      var embeded;
-      for (i = 1; hp_first_user > 0 || hp_second_user > 0; i++) {
-        embeded = {
-          color: COR_FRIEND,
-          author: {
-            name: Bot.user.username,
-            icon_url: Bot.user.avatarURL
-          },
-          title: "TRETA POAR",
-          url: "http://pico.xzy",
-          description: "**" + first_user + "** Chamou *" + second_user + "* pro pau.",
-          fields: [{
-            name: "**" + first_user + "**",
-            value: hp_first_user,
-            "inline": true
-          },
-          {
-            name: "**" + second_user + "**",
-            value: hp_second_user,
-            "inline": true
-          }
-          ],
-          timestamp: new Date(),
-          footer: {
-            icon_url: Bot.user.avatarURL,
-            text: "© Pico | Treta News"
-          }
-        };
-        console.log('HP do Primeiro: ' + hp_first_user);
-        console.log('HP do Segundo: ' + hp_second_user);
-        if(hp_first_user<0||hp_second_user<0) {
-          var winner = first_user<0 ? 'segundo ganhou' : 'primeiro ganhou' 
-          return console.log('Finalizou, e o ' + winner)
-        }
+// pra alterar as mensgens padrões e repetidas do embed
+const configmsgs = {
+  'max_life':100, // máximo de vida
+  'sleeptime':125, // tempo de espera entre os edits
+  'beforelifename': ':heart: ', // mensagem antes do nome da pessoa (um coração pra representar vida)
+  'title':'TRETA! TRETA!!', // mensagem titulo
+  'url':'#', // url qualquer
+  'color':COR_FRIEND, // cor da embed
+  'timestamp':new Date(), // data da trta
+  'footer_icon':Bot.user.avatarURL, // icon do footer
+  'footer_text':'© Pico | Treta News', // texto do footer
+  'author_name':Bot.user.username, // autor do embed
+  'author_icon':Bot.user.avatarURL // icone do author do embed
+}
 
-        var dano = Math.floor(Math.random() * 30);
-        if (i%2 == 0) {
-          hp_first_user -= dano;
-          if (hp_first_user < 0) {
-            hp_first_user = 0;
-          }
-          msg.channel.send({embed});
-        } else if (i%2 == 1) {
-            hp_second_user -= dano;
-            if (hp_second_user < 0 ) {
-              hp_second_user = 0;
-            }
-            msg.channel.send({embed});
-        } else if (hp_first_user <= 0 || hp_second_user <= 0 ){
-          i = 3;
-          console.log('MORREU' + i + 'vida' + hp_second_user);
-        }
+// os dados dos participantes
+var info = {
+  1: {'name':msg.author.username,'life':configmsgs.max_life},
+  2: {'name':msg.mentions.users.first().username,'life':configmsgs.max_life},
+}
 
+// primeira mensagem
+const embed = {
+  "title": configmsgs.title,
+  "description": ":white_circle: **info[1].name** chamou *info[2].name* pro PAU!",
+  "url": configmsgs.url,
+  "color": configmsgs.color,
+  "timestamp": configmsgs.timestamp,
+  "footer": {
+    "icon_url": configmsgs.footer_icon,
+    "text": configmsgs.footer_text
+  },
+  "author": {
+    "name": configmsgs.author_name,
+    "icon_url": configmsgs.author_icon
+  },
+  "fields": [
+    {
+      "name": configmsgs.beforelifename + info[1].name,
+      "value": info[1].life + "/" + configmsgs.max_life,
+      "inline": true
+    },
+    {
+      "name": configmsgs.beforelifename + info[2].name,
+      "value": info[2].life + "/" + configmsgs.max_life,
+      "inline": true
+    }
+  ]
+};
+msg.channel.send({embed}).then(resposta => {
+
+for (i = 1; info[1].life>0||info[2].life>0; i++) { 
+
+  // sleep zzzzzzzzzzz
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > configmsgs.sleeptime){
+      break;
+    }
+  }
+
+  // se rolar ganhador
+	if(info[1].life<0||info[2].life<0) {
+		var winner = info[1].life<0 ? info[2].name : info[1].name; 
+          const embed = {
+            "title": configmsgs.title,
+            "description": ":medal: **"+winner+"** ganhou a batalha!",
+            "url": configmsgs.url,
+            "color": configmsgs.color,
+            "timestamp": configmsgs.timestamp,
+            "footer": {
+              "icon_url": configmsgs.footer_icon,
+              "text": configmsgs.footer_text
+            },
+            "author": {
+              "name": configmsgs.author_name,
+              "icon_url": configmsgs.author_icon
+            },
+            "fields": [
+              {
+                "name": configmsgs.beforelifename + info[1].name,
+                "value": info[1].life + "/" + configmsgs.max_life,
+                "inline": true
+              },
+              {
+                "name": configmsgs.beforelifename + info[2].name,
+                "value": info[2].life + "/" + configmsgs.max_life,
+                "inline": true
+              }
+            ]
+          };
+		return resposta.edit({embed})}
+
+
+      var dano = Math.floor(Math.random() * 30);
+      if (i%2 == 0) {
+        info[1].life -= dano;
+
+          const embed = {
+            "title": configmsgs.title,
+            "description": ":red_circle: **"+info[2].name+"** tirou __"+dano+"__ de *"+info[1].name+"*",
+            "url": configmsgs.url,
+            "color": configmsgs.color,
+            "timestamp": configmsgs.timestamp,
+            "footer": {
+              "icon_url": configmsgs.footer_icon,
+              "text": configmsgs.footer_text
+            },
+            "author": {
+              "name": configmsgs.author_name,
+              "icon_url": configmsgs.author_icon
+            },
+            "fields": [
+              {
+                "name": configmsgs.beforelifename + info[1].name,
+                "value": info[1].life + "/" + configmsgs.max_life,
+                "inline": true
+              },
+              {
+                "name": configmsgs.beforelifename + info[2].name,
+                "value": info[2].life + "/" + configmsgs.max_life,
+                "inline": true
+              }
+            ]
+          };
+        resposta.edit({embed})
+      } else if (i%2 == 1) {
+      	info[2].life -= dano;
+
+          const embed = {
+            "title": configmsgs.title,
+            "description": ":red_circle: **"+info[1].name+"** tirou __"+dano+"__ de *"+info[2].name+"*",
+            "url": configmsgs.url,
+            "color": configmsgs.color,
+            "timestamp": configmsgs.timestamp,
+            "footer": {
+              "icon_url": configmsgs.footer_icon,
+              "text": configmsgs.footer_text
+            },
+            "author": {
+              "name": configmsgs.author_name,
+              "icon_url": configmsgs.author_icon
+            },
+            "fields": [
+              {
+                "name": configmsgs.beforelifename + info[1].name,
+                "value": info[1].life + "/" + configmsgs.max_life,
+                "inline": true
+              },
+              {
+                "name": configmsgs.beforelifename + info[2].name,
+                "value": info[2].life + "/" + configmsgs.max_life,
+                "inline": true
+              }
+            ]
+          };
+        resposta.edit({embed})
       }
-    });
-      
-    if (hp_first_user <= 0) {
-      msg.channel.send(basicembed(COR_FRIEND, msg.author.username + ' TOMOU NO MEIO DO FUREBIS'));
-    }
 
-    if (hp_second_user <= 0) {
-      msg.channel.send(basicembed(COR_FRIEND, msg.mentions.users.first().username + ' MAUAHUAH SE FODEU'));
     }
-  
-    
-
+});
   }
 
   // COMANDOS Administrativos
