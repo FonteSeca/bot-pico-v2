@@ -266,7 +266,7 @@ Bot.on('message', msg => {
 // pra alterar as mensgens padrões e repetidas do embed
 const configmsgs = {
   'max_life':100, // máximo de vida
-  'sleeptime':125, // tempo de espera entre os edits
+  'sleeptime':1000, // tempo de espera entre os edits
   'beforelifename': ':heart: ', // mensagem antes do nome da pessoa (um coração pra representar vida)
   'title':'TRETA! TRETA!!', // mensagem titulo
   'url':'https://twist.moe/a/bokunopico/1', // url qualquer
@@ -287,7 +287,7 @@ var info = {
 // primeira mensagem
 const embed = {
   "title": configmsgs.title,
-  "description": ":white_circle: **info[1].name** chamou *info[2].name* pro PAU!",
+  "description": ":white_circle: **"+info[1].name+"** chamou *"+info[2].name+"* pro PAU!",
   "url": configmsgs.url,
   "color": configmsgs.color,
   "timestamp": configmsgs.timestamp,
