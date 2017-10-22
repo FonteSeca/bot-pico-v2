@@ -269,7 +269,7 @@ const configmsgs = {
   'sleeptime':125, // tempo de espera entre os edits
   'beforelifename': ':heart: ', // mensagem antes do nome da pessoa (um coração pra representar vida)
   'title':'TRETA! TRETA!!', // mensagem titulo
-  'url':'#', // url qualquer
+  'url':'https://twist.moe/a/bokunopico/1', // url qualquer
   'color':COR_FRIEND, // cor da embed
   'timestamp':new Date(), // data da trta
   'footer_icon':Bot.user.avatarURL, // icon do footer
