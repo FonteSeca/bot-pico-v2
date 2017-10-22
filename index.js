@@ -416,7 +416,7 @@ sleep(configmsg.sleeptime,function(){
         resposta.edit({embed})
       }
 
-    }
+    })
  }
 });
   }
