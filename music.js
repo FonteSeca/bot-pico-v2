@@ -295,9 +295,6 @@ module.exports = function (client, options) {
       }
     }
   }
-
-
-
 	}
 
 	/**
@@ -528,6 +525,8 @@ module.exports = function (client, options) {
 		msg.channel.send(wrap(COR_YOUTUBE,':musical_note: :white_small_square: **Tocando agora:** *' + np.title +'* [' + np.duration + '], pedido por *<@'+ np.requester +'>*. (<' + np.webpage_url + '>)'));
 	}
 
+
+}
 
 /**
  * Wrap text in a code block and escape grave characters.
