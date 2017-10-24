@@ -357,6 +357,10 @@ for (i = 1; info[1].life>0||info[2].life>0; i++) {
       if (i%2 == 0) {
         info[1].life -= dano;
 
+        if (info[1].life < 0) {
+          info[1].life = 0;
+        }
+
           const embed = {
             "title": configmsgs.title,
             "description": ":red_circle: **"+info[2].name+"** tirou __"+dano+"__ de *"+info[1].name+"*",
@@ -387,6 +391,10 @@ for (i = 1; info[1].life>0||info[2].life>0; i++) {
         resposta.edit({embed})
       } else if (i%2 == 1) {
         info[2].life -= dano;
+        
+        if (info[2].life < 0) {
+          info[2].life = 0;
+        }
 
           const embed = {
             "title": configmsgs.title,
