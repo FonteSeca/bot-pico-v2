@@ -266,10 +266,8 @@ Bot.on('message', msg => {
   "title": "asd",
   "description": "asdd",
   "color": COR_LOVE,
-  "timestamp": new Date(),
-  "footer": {
-    "icon_url": Bot.user.avatarURL,
-    "text": "© Pico"
+  "thumbnail": {
+    "url": Bot.user.avatarURL
   },
   "author": {
     "name": Bot.user.username,
