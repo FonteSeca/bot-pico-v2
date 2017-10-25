@@ -257,8 +257,37 @@ Bot.on('message', msg => {
   }
 
   function ship(msg, suffix) {
+    var chanceship = Math.floor(Math.random() * 100);
     const shipname = msg.mentions.users.first().username.replace(/[^a-z1-90]/gi, '').charAt(0).toUpperCase() + msg.mentions.users.first().username.replace(/[^a-z1-90]/gi, '').slice(1).slice(0,(msg.mentions.users.first().username.length / 2 + 1)).trim().toLowerCase() + msg.mentions.users.last().username.replace(/[^a-z1-90]/gi, '').slice(msg.mentions.users.last().username.length/2 - 2).trim().toLowerCase()
-    msg.channel.send(basicembed(COR_LOVE, shipname));
+    const embed = {
+  "title": "asd",
+  "description": "asdd",
+  "url": "https://twist.moe/a/bokunopico/1",
+  "color": COR_LOVE,
+  "timestamp": new Date(),
+  "footer": {
+    "icon_url": Bot.user.avatarURL,
+    "text": "© Pico | Treta News"
+  },
+  "author": {
+    "name": Bot.user.username,
+    "icon_url": Bot.user.avatarURL
+  },
+  "fields": [
+    {
+      "name": "Ship",
+      "value": shipname,
+      "inline": true
+    },
+    {
+      "name": ":heart:",
+      "value": chanceship,
+      "inline": true
+    }
+  ]
+};
+    msg.channel.send({embed});
+
   }
 
   function treta(msg, suffix) {
@@ -321,7 +350,7 @@ for (i = 1; info[1].life>0||info[2].life>0; i++) {
   while(new Date().getTime() < now + configmsgs.sleeptime) {}
 
   // se rolar ganhador
-  if(info[1].life<0||info[2].life<0) {
+  if(info[1].life<=0||info[2].life<=0) {
     var winner = info[1].life<0 ? info[2].name : info[1].name; 
           const embed = {
             "title": configmsgs.title,
@@ -352,7 +381,7 @@ for (i = 1; info[1].life>0||info[2].life>0; i++) {
           };
     return resposta.edit({embed})}
 
-
+    if(info[1].life>0||info[2].life>0) {
       var dano = Math.floor(Math.random() * 30);
       if (i%2 == 0) {
         info[1].life -= dano;
@@ -419,6 +448,7 @@ for (i = 1; info[1].life>0||info[2].life>0; i++) {
           };
         resposta.edit({embed})
       }
+    }
 
 
  }
