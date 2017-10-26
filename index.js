@@ -86,6 +86,9 @@ Bot.on('message', msg => {
       case 'treta':
         return treta(msg,suffix);
 
+      case 'info':
+        return info(msg, suffix);
+
       case 'ban':
         return ban(msg, suffix);
       case 'kick':
@@ -298,6 +301,13 @@ Bot.on('message', msg => {
 };
     msg.channel.send({embed});
 
+  }
+
+  function info(msg, suffix) {
+    msg.channel.send(msg.mentions.users.first().username);
+    msg.channel.send(msg.mentions.users.first().nickname);
+    msg.channel.send(msg.mentions.users.first().createdAt);
+    msg.channel.send(msg.mentions.users.first().joinedAt);
   }
 
   function treta(msg, suffix) {
