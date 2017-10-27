@@ -26,7 +26,7 @@ Bot.on('ready', () => {
 Bot.on('guildMemberAdd', member => {
 
   // if(member.guild.id !== ''){return;}
-  member.guild.channels.find("name", "avisos").send(imageembed(COR_BASE, 'https://giphy.com/gifs/love-live-welcome-vMPLHjgfHirAs', '**' + member.user.username + '** entrou no servidor!'));
+  member.guild.channels.find("name", "avisos").send(imageembed(COR_BASE, 'https://media.giphy.com/media/vMPLHjgfHirAs/giphy.gif', '**' + member.user.username + '** foi batizado por Pico-sama, agora você faz parte deste recinto do amor.'));
 });
 
 
@@ -300,6 +300,10 @@ Bot.on('message', msg => {
   ]
 };
     msg.channel.send({embed});
+
+  }
+
+  function userInfo(user) {
 
   }
 
