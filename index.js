@@ -304,10 +304,13 @@ Bot.on('message', msg => {
   }
 
   function userInfo(user) {
-
+    var asdasd = '';
+    asdasd = '**' + user.username + "**, **ID **" + user.id;
+    return asdasd;
   }
 
   function info(msg, suffix) {
+    msg.channel.send(userInfo(msg.author));
     msg.channel.send(msg.mentions.users.first().username);
     msg.channel.send(msg.mentions.users.first().nickname);
     msg.channel.send(msg.mentions.users.first().createdAt);
