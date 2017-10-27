@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
 const music = require('./music.js');
+const Sequelize = require('sequelize');
+const weather = require('weather-js');
 const Bot = new Discord.Client();
+
 
 // const fs = require("fs");
 
@@ -11,6 +14,8 @@ let COR_LOVE = '16711875';
 let COR_FRIEND = '41471';
 let COR_EROU = '40447';
 let COR_ADM = '16711680';
+
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 let PREFIX = "$";
 
@@ -88,6 +93,9 @@ Bot.on('message', msg => {
 
       case 'info':
         return info(msg, suffix);
+
+      case 'teste':
+        return teste(msg,suffix);
 
       case 'ban':
         return ban(msg, suffix);
@@ -480,6 +488,20 @@ for (i = 1; info[1].life>0||info[2].life>0; i++) {
 
  }
 });
+  }
+
+
+  // TESTES POAR
+
+  function teste(msg, suffix) {
+    sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
   }
 
   // COMANDOS Administrativos
