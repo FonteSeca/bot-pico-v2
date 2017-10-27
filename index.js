@@ -92,6 +92,8 @@ Bot.on('message', msg => {
 
       case 'info':
         return info(msg, suffix);
+      case 'infoserver':
+        return infoserver(msg, suffix);
 
       case 'teste':
         return teste(msg,suffix);
@@ -310,19 +312,7 @@ Bot.on('message', msg => {
 
   }
 
-  function userInfo(user) {
-    var asdasd = '';
-    asdasd = '**' + user.username + "**, **ID **" + user.id;
-    return asdasd;
-  }
 
-  function info(msg, suffix) {
-    msg.channel.send(userInfo(msg.author));
-    msg.channel.send(msg.mentions.users.first().username);
-    msg.channel.send(msg.mentions.users.first().nickname);
-    msg.channel.send(msg.mentions.users.first().createdAt);
-    msg.channel.send(msg.mentions.users.first().joinedAt);
-  }
 
   function treta(msg, suffix) {
     if (!suffix) return msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'treta** * *@user*'));
@@ -524,6 +514,35 @@ User.sync({force: true}).then(() => {
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+  }
+
+
+  // 
+
+  function userInfo(user) {
+    var asdasd = '';
+    asdasd = '**' + user.username + "**, **ID **" + user.id;
+    return asdasd;
+  }
+
+  function info(msg, suffix) {
+    msg.channel.send(userInfo(msg.author));
+    msg.channel.send(msg.mentions.users.first().username);
+    msg.channel.send(msg.mentions.users.first().nickname);
+    msg.channel.send(msg.mentions.users.first().createdAt);
+    msg.channel.send(msg.mentions.users.first().joinedAt);
+  }
+
+  function infoserver(msg, suffix){
+    debug.log(msg);
+    debug.log(suffix);
+    msg.channel.send('Dono: ' + guild.owner);
+    msg.channel.send('Servidor Criado: ' + guild.createdAt);
+    msg.channel.send('Membros no Servidor: ' + guild.memberCount);
+    msg.channel.send('Cargos no Servidor: ' guild.roles);
+
+
+
   }
 
   // COMANDOS Administrativos
