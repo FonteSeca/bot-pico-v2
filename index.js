@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const music = require('./music.js');
 const Sequelize = require('sequelize');
-const weather = require('weather-js');
 const Bot = new Discord.Client();
 
 
