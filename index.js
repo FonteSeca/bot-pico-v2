@@ -534,12 +534,12 @@ User.sync({force: true}).then(() => {
   }
 
   function infoserver(msg, suffix){
-    console.log(msg);
-    console.log(suffix);
-    msg.channel.send('Dono: ' + guild.owner);
-    msg.channel.send('Servidor Criado: ' + guild.createdAt);
-    msg.channel.send('Membros no Servidor: ' + guild.memberCount);
-    msg.channel.send('Cargos no Servidor: ' + guild.roles);
+    console.log('nha /n' + msg);
+    console.log('pah /n' + suffix);
+    msg.channel.send('Dono: ' + msg.guild.owner);
+    msg.channel.send('Servidor Criado: ' + msg.guild.createdAt);
+    msg.channel.send('Membros no Servidor: ' + msg.guild.memberCount);
+    msg.channel.send('Cargos no Servidor: ' + msg.guild.roles);
 
 
 
