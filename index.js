@@ -534,8 +534,8 @@ User.sync({force: true}).then(() => {
   }
 
   function infoserver(msg, suffix){
-    debug.log(msg);
-    debug.log(suffix);
+    console.log(msg);
+    console.log(suffix);
     msg.channel.send('Dono: ' + guild.owner);
     msg.channel.send('Servidor Criado: ' + guild.createdAt);
     msg.channel.send('Membros no Servidor: ' + guild.memberCount);
