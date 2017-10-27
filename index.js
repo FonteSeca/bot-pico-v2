@@ -516,7 +516,7 @@ User.sync({force: true}).then(() => {
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
-    teste();
+    yay();
     User.findAll().then(users => {
       console.log(users)
     })
