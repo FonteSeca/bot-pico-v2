@@ -492,11 +492,34 @@ for (i = 1; info[1].life>0||info[2].life>0; i++) {
 
   // TESTES POAR
 
+  function yay() {
+    const User = sequelize.define('user', {
+  firstName: {
+    type: Sequelize.STRING
+  },
+  lastName: {
+    type: Sequelize.STRING
+  }
+});
+
+// force: true will drop the table if it already exists
+User.sync({force: true}).then(() => {
+  // Table created
+  return User.create({
+    firstName: 'John',
+    lastName: 'Hancock'
+  });
+});
+  }
   function teste(msg, suffix) {
     sequelize
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
+    teste();
+    User.findAll().then(users => {
+      console.log(users)
+    })
   })
   .catch(err => {
     console.error('Unable to connect to the database:', err);
