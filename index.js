@@ -539,7 +539,7 @@ User.sync({force: true}).then(() => {
     msg.channel.send('Dono: ' + msg.guild.owner);
     msg.channel.send('Servidor Criado: ' + msg.guild.createdAt);
     msg.channel.send('Membros no Servidor: ' + msg.guild.memberCount);
-    msg.channel.send('Cargos no Servidor: ' + msg.guild.roles);
+    msg.channel.send('Cargos no Servidor: ' + msg.guild.roles.toString());
 
 
 
