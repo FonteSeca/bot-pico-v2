@@ -541,8 +541,6 @@ User.sync({force: true}).then(() => {
     msg.channel.send('Membros no Servidor: ' + msg.guild.memberCount);
     msg.channel.send('Cargos no Servidor: ' + msg.guild.roles.toString());
 
-
-
   }
 
   // COMANDOS Administrativos

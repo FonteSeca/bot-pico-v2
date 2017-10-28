@@ -209,7 +209,7 @@ module.exports = function (client, options) {
 					    },
 					    {
 					      "name": "Nhanahanh",
-					      "value": util.getAuthor(name),
+					      "value": "util.getAuthor(name)",
 					      "inline": true
 					    }
 					  ]
