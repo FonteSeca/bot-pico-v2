@@ -5,6 +5,7 @@ var skipinfo = new Array();
 let limitmusic = 30;
 
 let COR_YOUTUBE = '16320777';
+let COR_EROU = '40447';
 /**
  * Takes a discord.js client and turns it into a music bot.
  * Thanks to 'derekmartinez18' for helping.
@@ -152,7 +153,7 @@ module.exports = function (client, options) {
 		if (msg.member.voiceChannel === undefined) return msg.channel.send(wrap(COR_YOUTUBE,':x: :white_small_square:  Você não está no chat de voz.'));
 
 		// Make sure the suffix exists.
-		if (!suffix) return msg.channel.send(wrap(COR_YOUTUBE,':musical_note: :white_small_square:  Use **!play nome da música** ou **!play urldoyoutube**'));
+		if (!suffix) return msg.channel.send(wrap(COR_EROU,':musical_note: :white_small_square:  Use **!play nome da música** ou **!play urldoyoutube**'));
 
 		// Get the queue.
 		const queue = getQueue(msg.guild.id);
@@ -176,30 +177,19 @@ module.exports = function (client, options) {
 				// Verify the info.
 				if (err || info.format_id === undefined || info.format_id.startsWith('0')) {
 					console.log(info);
-					return response.edit(wrap(COR_YOUTUBE,':x: :white_small_square:  **Vídeo inválido!**'));
+					return response.edit(wrap(COR_EROU,':x: :white_small_square:  **Vídeo inválido!**'));
 				
 				}
 
 				info.requester = msg.author.id;
 				
 				const embed = {
-					  "title": info.title,
-					  "description": "asda",
+					  "title": "DJ Pico | " + msg.author.username + " adicionou na playlist",
+					  "description": info.title,
 					  "url": info.url,
 					  "color": COR_YOUTUBE,
-					  "timestamp": "2017-10-06T16:10:52.501Z",
-					  "footer": {
-					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
-					    "text": "Pico | YouTube"
-					  },
-					  "thumbnail": {
-					    "url": info.thumbnail
-					  },
-
-					  "author": {
-					    "name": "DJ Pico | " + msg.author.toString().username + " adicionou na playlist",
-					    "url": "https://youtube.com",
-					    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png"
+					  "image": {
+					  	"url": info.thumbnail
 					  },
 					  "fields": [
 					    {
