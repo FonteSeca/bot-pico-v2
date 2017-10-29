@@ -529,7 +529,7 @@ User.sync({force: true}).then(() => {
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member();
       const embed = {
-        "color": COR_YOUTUBE,
+        "color": COR_BASE,
         "thumbnail": {
           "url": msg.mentions.users.first().avatarURL
         },
