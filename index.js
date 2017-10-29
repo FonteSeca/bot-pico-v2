@@ -533,7 +533,7 @@ User.sync({force: true}).then(() => {
       msg.channel.send(msg.mentions.users.first().createdAt);
       msg.channel.send(msg.mentions.users.first().joinedAt.toString());
     }
-    else if {
+    else if (msg.mentions.users.size == 0) {
       msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'info** *@user*')
     }
     
