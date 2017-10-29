@@ -504,7 +504,7 @@ User.sync({force: true}).then(() => {
   function teste(msg, suffix) {
     sequelize.authenticate().then(() => {
       console.log('Connection has been established successfully.');
-      sequelize.query("SELECT * FROM `users`", { type: sequelize.QueryTypes.SELECT}).then(users => {
+      sequelize.query("SELECT * FROM 'users'", { type: sequelize.QueryTypes.SELECT}).then(users => {
         msg.channel.send(users);
       })
 
