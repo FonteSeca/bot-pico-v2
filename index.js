@@ -529,9 +529,9 @@ User.sync({force: true}).then(() => {
     if (msg.mentions.users.size > 0) {
       msg.channel.send(userInfo(msg.author));  
       msg.channel.send(msg.mentions.users.first().username);
-      msg.channel.send(msg.mentions.users.first().nickname);
+      console.log(msg.guild.member(msg.mentions.users.first()).nickname);
       msg.channel.send(msg.mentions.users.first().createdAt);
-      msg.channel.send(msg.guild.member(msg.mentions.users.first()).joinedAt);
+      console.log(msg.guild.member(msg.mentions.users.first()).joinedAt);
     }
     else if (msg.mentions.users.size == 0) {
       msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'info** *@user*'));
