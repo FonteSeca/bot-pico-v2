@@ -520,19 +520,50 @@ User.sync({force: true}).then(() => {
   // 
 
   function userInfo(user) {
-    //var asdasd = '';
-    //asdasd = '**' + user.username + "**, **ID **" + user.id;
-    //return asdasd;
+    var asdasd = '';
+    asdasd = '**' + user.username + "**, **ID **" + user.id;
+    return asdasd;
   }
 
   function info(msg, suffix) {
-    msg.channel.send('askljdkalsjdaçsd')
     if (msg.mentions.users.size > 0) {
-      msg.channel.send(userInfo(msg.author));  
+      const member = msg.guild.member();
+      const embed = {
+        "color": COR_YOUTUBE,
+        "thumbnail": {
+          "url": msg.mentions.users.first().avatarURL
+        },
+        "fields": [
+          {
+            "name": "Duração",
+            "value": msg.mentions.users.first().username,
+            "inline": true
+          },
+          {
+            "name": "Duração",
+            "value": msg.mentions.users.first().username,
+            "inline": true
+          },
+          {
+            "name": "Nhanahanh",
+            "value": member.nickname,
+            "inline": true
+          },
+          {
+            "name": "Nhanahanh",
+            "value": msg.mentions.users.first().createdAt,
+            "inline": true
+          },
+          {
+            "name": "Nhanahanh",
+            "value": member.joinedAt,
+            "inline": true
+          },
+          ]
+      };
       msg.channel.send(msg.mentions.users.first().username);
-      console.log(msg.guild.member(msg.mentions.users.first()).nickname);
-      msg.channel.send(msg.mentions.users.first().createdAt);
-      console.log(msg.guild.member(msg.mentions.users.first()).joinedAt);
+      console.log();
+      console.log();
     }
     else if (msg.mentions.users.size == 0) {
       msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'info** *@user*'));

@@ -186,7 +186,6 @@ module.exports = function (client, options) {
 				const embed = {
 					  "title": "DJ Pico | " + msg.author.username + " adicionou na playlist",
 					  "description": info.title,
-					  "url": info.url,
 					  "color": COR_YOUTUBE,
 					  "image": {
 					  	"url": info.thumbnail
