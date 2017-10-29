@@ -527,7 +527,7 @@ User.sync({force: true}).then(() => {
 
   function info(msg, suffix) {
     if (msg.mentions.users.size > 0) {
-      const member = msg.guild.member();
+      const member = msg.guild.member(msg.mentions.users.first());
       const embed = {
         "color": COR_BASE,
         "thumbnail": {
