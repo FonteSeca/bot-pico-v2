@@ -561,7 +561,7 @@ User.sync({force: true}).then(() => {
           },
           ]
       };
-      msg.channel.send(msg.mentions.users.first().username);
+      msg.channel.send({embed});
       console.log();
       console.log();
     }
