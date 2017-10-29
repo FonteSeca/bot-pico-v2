@@ -520,12 +520,13 @@ User.sync({force: true}).then(() => {
   // 
 
   function userInfo(user) {
-    var asdasd = '';
-    asdasd = '**' + user.username + "**, **ID **" + user.id;
-    return asdasd;
+    //var asdasd = '';
+    //asdasd = '**' + user.username + "**, **ID **" + user.id;
+    //return asdasd;
   }
 
   function info(msg, suffix) {
+    msg.channel.send('askljdkalsjdaçsd')
     if (msg.mentions.users.size > 0) {
       msg.channel.send(userInfo(msg.author));  
       msg.channel.send(msg.mentions.users.first().username);
