@@ -502,18 +502,16 @@ User.sync({force: true}).then(() => {
 });
   }
   function teste(msg, suffix) {
-    sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-    yay();
-    User.findAll().then(users => {
-      console.log(users)
+    sequelize.authenticate().then(() => {
+      console.log('Connection has been established successfully.');
+      sequelize.query("SELECT * FROM `users`", { type: sequelize.QueryTypes.SELECT}).then(users => {
+        msg.channel.send(users);
+      })
+
     })
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
+    .catch(err => {
+      console.error('Unable to connect to the database:', err);
+    });
   }
 
 
@@ -529,16 +527,11 @@ User.sync({force: true}).then(() => {
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
       const embed = {
-        "color": COR_BASE,
+        "color": COR_FRIEND,
         "thumbnail": {
           "url": msg.mentions.users.first().avatarURL
         },
         "fields": [
-          {
-            "name": "Duração",
-            "value": msg.mentions.users.first().username,
-            "inline": true
-          },
           {
             "name": "Duração",
             "value": msg.mentions.users.first().username,
@@ -562,8 +555,6 @@ User.sync({force: true}).then(() => {
           ]
       };
       msg.channel.send({embed});
-      console.log();
-      console.log();
     }
     else if (msg.mentions.users.size == 0) {
       msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'info** *@user*'));
