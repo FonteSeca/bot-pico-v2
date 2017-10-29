@@ -526,11 +526,18 @@ User.sync({force: true}).then(() => {
   }
 
   function info(msg, suffix) {
-    msg.channel.send(userInfo(msg.author));
-    msg.channel.send(msg.mentions.users.first().username);
-    msg.channel.send(msg.mentions.users.first().nickname);
-    msg.channel.send(msg.mentions.users.first().createdAt);
-    msg.channel.send(msg.mentions.users.first().joinedAt);
+    if (msg.mentions.users.size > 0) {
+      msg.channel.send(userInfo(msg.author));  
+      msg.channel.send(msg.mentions.users.first().username);
+      msg.channel.send(msg.mentions.users.first().nickname);
+      msg.channel.send(msg.mentions.users.first().createdAt);
+      msg.channel.send(msg.mentions.users.first().joinedAt.toString());
+    }
+    else if {
+      msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'info** *@user*')
+    }
+    
+    
   }
 
   function infoserver(msg, suffix){
@@ -549,7 +556,7 @@ User.sync({force: true}).then(() => {
 
     if(isAdmin(msg.member)) {
       if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author.toString() == msg.mentions.users.first().toString()) {
-        msg.channel.send(basicembed(COR_EROU,'Use **!ban** *@user*'));
+        msg.channel.send(basicembed(COR_EROU,'Use **' + PREFIX + 'ban** *@user*'));
       } else {
         let banMember = msg.guild.member(msg.mentions.users.first());
         msg.guild.member(banMember).ban();
@@ -564,7 +571,7 @@ User.sync({force: true}).then(() => {
 
     if(isAdmin(msg.member)) {
       if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author.toString() == msg.mentions.users.first().toString()) {
-        msg.channel.send(basicembed(COR_EROU,'Use **!kick** *@user*'));
+        msg.channel.send(basicembed(COR_EROU,'Use **' + PREFIX + 'kick** *@user*'));
       } else {
         let kickMember = msg.guild.member(msg.mentions.users.first());
         msg.guild.member(kickMember).kick();
@@ -595,7 +602,7 @@ User.sync({force: true}).then(() => {
 
 
   function kkiss(msg,suffix){
-    if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!kiss** *@user*'));
+    if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **' + PREFIX + 'kiss** *@user*'));
     KissArray = new Array();
     KissArray[0] = 'https://cdn.discordapp.com/attachments/300826546359369729/358629430320693248/unnamed_2.gif';
     KissArray[1] = 'https://cdn.discordapp.com/attachments/334145215399067648/335635401559638020/KH1CTZtw1iP3W.gif';
