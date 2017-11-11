@@ -616,7 +616,7 @@ User.sync({force: true}).then(() => {
 
   function help(msg, suffix) {
     msg.author.send(basicembed(COR_BASE, 'çalksça'));
-    const Discord = require('discord.js');
+  
 const embed = new Discord.RichEmbed()
   .setTitle('Very Nice Title')
   .setAuthor('Author Name', 'https://goo.gl/rHndF5')
