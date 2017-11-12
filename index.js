@@ -98,6 +98,9 @@ Bot.on('message', msg => {
       case 'teste':
         return teste(msg,suffix);
 
+      case 'avatar':
+        return avatar(msg, suffix);
+
       case 'ban':
         return ban(msg, suffix);
       case 'kick':
@@ -112,6 +115,15 @@ Bot.on('message', msg => {
     }
   }
 
+  function avatar(msg, suffix) {
+    if (msg.mentions.users.size < 1) {
+      msg.channel.send(imageembed(COR_BASE, msg.author.avatarURL, 'Nhaa'));
+    }
+    else if (msg.mentions.users.size > 1) {
+      msg.channel.send(imageembed(COR_BASE, msg.mentions.users.first().avatarURL, 'Oieee'));
+    }
+    
+  }
 
   function isAdmin(member) {
     return member.hasPermission("ADMINISTRATOR");
@@ -616,39 +628,8 @@ User.sync({force: true}).then(() => {
 
   function help(msg, suffix) {
     msg.author.send(basicembed(COR_BASE, 'çalksça'));
-  
-const embed = new Discord.RichEmbed()
-  .setTitle('Very Nice Title')
-  .setAuthor('Author Name', 'https://goo.gl/rHndF5')
-  /*
-   * Alternatively, use '#00AE86', [0, 174, 134] or an integer number.
-   */
-  .setColor(0x00AE86)
-  .setDescription('The text of the body, essentially')
-  .setFooter('Nice text at the bottom', 'https://goo.gl/hkFYh0')
-  .setImage('https://goo.gl/D3uKk2')
-  .setThumbnail('https://goo.gl/lhc6ke')
-  /*
-   * Takes a Date object, defaults to current date.
-   */
-  .setTimestamp()
-  .setURL('https://discord.js.org/#/docs/main/indev/class/RichEmbed')
-  .addField('Field Title', 'Field Value')
-  /*
-   * Inline fields may not display as inline if the thumbnail and/or image is too big.
-   */
-  .addField('Inline Field', 'Hmm 🤔', true)
-  /*
-   * Blank field, useful to create some space.
-   */
-  .addField('\u200b', '\u200b', true)
-  .addField('Second (3rd place) Inline Field', 'I\'m in the ZOONE', true);
 
-/*
- *  You can only use the shorthand "{ embed }" when your embed variable is also called embed.
- *  If it's not called embed, use "{ embed: variableName }" instead.
- */ 
-msg.channel.send({ embed });
+
   }
 
   function fdp(msg, suffix) {
