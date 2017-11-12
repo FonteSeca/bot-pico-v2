@@ -590,7 +590,7 @@ User.sync({force: true}).then(() => {
 
   function ban(msg, suffix) {
 
-    if(isAdmin(msg.member)) {
+    if (msg.member.hasPermission("BAN_MEMBERS")) {
       if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author.toString() == msg.mentions.users.first().toString()) {
         msg.channel.send(basicembed(COR_EROU,'Use **' + PREFIX + 'ban** *@user*'));
       } else {
@@ -605,7 +605,7 @@ User.sync({force: true}).then(() => {
 
   function kick(msg, suffix) {
 
-    if(isAdmin(msg.member)) {
+    if (msg.member.hasPermission("KICK_MEMBERS")) {
       if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author.toString() == msg.mentions.users.first().toString()) {
         msg.channel.send(basicembed(COR_EROU,'Use **' + PREFIX + 'kick** *@user*'));
       } else {
