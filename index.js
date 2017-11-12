@@ -117,10 +117,10 @@ Bot.on('message', msg => {
 
   function avatar(msg, suffix) {
     if (msg.mentions.users.size < 1) {
-      msg.channel.send(imageembed(COR_BASE, msg.author.avatarURL, 'Nhaa'));
+      msg.channel.send(imageembed(COR_BASE, msg.author.avatarURL, 'Avatar de **' msg.author.username + '**'));
     }
     if (msg.mentions.users.size > 0) {
-      msg.channel.send(imageembed(COR_BASE, msg.mentions.users.first().avatarURL, 'Oieee'));
+      msg.channel.send(imageembed(COR_BASE, msg.mentions.users.first().avatarURL, 'Avatar de **' msg.mentions.users.first().username + '**'));
     }
     
   }
