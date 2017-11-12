@@ -119,7 +119,7 @@ Bot.on('message', msg => {
     if (msg.mentions.users.size < 1) {
       msg.channel.send(imageembed(COR_BASE, msg.author.avatarURL, 'Nhaa'));
     }
-    else if (msg.mentions.users.size > 1) {
+    if (msg.mentions.users.size > 0) {
       msg.channel.send(imageembed(COR_BASE, msg.mentions.users.first().avatarURL, 'Oieee'));
     }
     
