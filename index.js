@@ -545,38 +545,58 @@ User.sync({force: true}).then(() => {
   }
 
   function info(msg, suffix) {
+    
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
+
       let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
-    if (roles.length < 1) roles = ['None'];
-      const embed = {
+      if (roles.length < 1) roles = ['Nenhum'];
+
+      let avatarUser = msg.mentions.users.first().avatarURL;
+      let nickDiscord = msg.mentions.users.first().username;
+      let nickServer = member.nickname;
+      let enterDiscord = dateFormat(msg.mentions.users.first().createdAt);
+      let enterServer = dateFormat(member.joinedAt);
+    }
+    else if (msg.mentions.users.size == 0) {
+      const member = msg.guild.member(msg.author);      
+      let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+      if (roles.length < 1) roles = ['Nenhum'];
+
+      let avatarUser = msg.mentions.users.first().avatarURL;
+      let nickDiscord = msg.mentions.users.first().username;
+      let nickServer = msg.guild.member(msg.author).nickname;
+      let enterDiscord = dateFormat(msg.mentions.users.first().createdAt);
+      let enterServer = dateFormat(member.joinedAt);
+    }
+    const embed = {
         "color": COR_FRIEND,
         "thumbnail": {
-          "url": msg.mentions.users.first().avatarURL
+          "url": avatarUser
         },
         "author": {
-          "name": msg.mentions.users.first().username,
-          "icon_url": msg.mentions.users.first().avatarURL
+          "name": nickDiscord,
+          "icon_url": avatarUser
         },
         "fields": [
           {
             "name": "Apelido",
-            "value": msg.mentions.users.first().username,
+            "value": nickDiscord,
             "inline": true
           },
           {
             "name": "Apelido no Server",
-            "value": member.nickname,
+            "value": nickServer,
             "inline": true
           },
           {
             "name": "Entrou no Discord",
-            "value": dateFormat(msg.mentions.users.first().createdAt),
+            "value": enterDiscord,
             "inline": true
           },
           {  
             "name": "Entrou no Server",
-            "value": dateFormat(member.joinedAt),
+            "value": enterServer,
             "inline": true
           },
           {
@@ -586,10 +606,6 @@ User.sync({force: true}).then(() => {
           ]
       };
       msg.channel.send({embed});
-    }
-    else if (msg.mentions.users.size == 0) {
-      msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'info** *@user*'));
-    }
     
     
   }
