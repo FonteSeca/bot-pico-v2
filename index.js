@@ -545,29 +545,34 @@ User.sync({force: true}).then(() => {
   }
 
   function info(msg, suffix) {
-    
+    const avatarUser;
+    const nickDiscord;
+    const nickServer;
+    const enterDiscord;
+    const enterServer;
+    const roles;
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
 
-      const roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+      roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
       if (roles.length < 1) roles = ['Nenhum'];
 
-      const avatarUser = msg.mentions.users.first().avatarURL;
-      const nickDiscord = msg.mentions.users.first().username;
-      const nickServer = member.nickname;
-      const enterDiscord = dateFormat(msg.mentions.users.first().createdAt);
-      const enterServer = dateFormat(member.joinedAt);
+      avatarUser = msg.mentions.users.first().avatarURL;
+      nickDiscord = msg.mentions.users.first().username;
+      nickServer = member.nickname;
+      enterDiscord = dateFormat(msg.mentions.users.first().createdAt);
+      enterServer = dateFormat(member.joinedAt);
     }
     else if (msg.mentions.users.size == 0) {
       const member = msg.guild.member(msg.author);      
-      const roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+      roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
       if (roles.length < 1) roles = ['Nenhum'];
 
-      const avatarUser = msg.author.avatarURL;
-      const nickDiscord = msg.author.username;
-      const nickServer = msg.guild.member(msg.author).nickname;
-      const enterDiscord = dateFormat(msg.author.createdAt);
-      const enterServer = dateFormat(member.joinedAt);
+      avatarUser = msg.author.avatarURL;
+      nickDiscord = msg.author.username;
+      nickServer = msg.guild.member(msg.author).nickname;
+      enterDiscord = dateFormat(msg.author.createdAt);
+      enterServer = dateFormat(member.joinedAt);
     }
     const embed = {
         "color": COR_FRIEND,
