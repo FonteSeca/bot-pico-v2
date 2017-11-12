@@ -549,25 +549,25 @@ User.sync({force: true}).then(() => {
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
 
-      let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+      const roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
       if (roles.length < 1) roles = ['Nenhum'];
 
-      let avatarUser = msg.mentions.users.first().avatarURL;
-      let nickDiscord = msg.mentions.users.first().username;
-      let nickServer = member.nickname;
-      let enterDiscord = dateFormat(msg.mentions.users.first().createdAt);
-      let enterServer = dateFormat(member.joinedAt);
+      const avatarUser = msg.mentions.users.first().avatarURL;
+      const nickDiscord = msg.mentions.users.first().username;
+      const nickServer = member.nickname;
+      const enterDiscord = dateFormat(msg.mentions.users.first().createdAt);
+      const enterServer = dateFormat(member.joinedAt);
     }
     else if (msg.mentions.users.size == 0) {
       const member = msg.guild.member(msg.author);      
-      let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+      const roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
       if (roles.length < 1) roles = ['Nenhum'];
 
-      let avatarUser = msg.author.avatarURL;
-      let nickDiscord = msg.author.username;
-      let nickServer = msg.guild.member(msg.author).nickname;
-      let enterDiscord = dateFormat(msg.author.createdAt);
-      let enterServer = dateFormat(member.joinedAt);
+      const avatarUser = msg.author.avatarURL;
+      const nickDiscord = msg.author.username;
+      const nickServer = msg.guild.member(msg.author).nickname;
+      const enterDiscord = dateFormat(msg.author.createdAt);
+      const enterServer = dateFormat(member.joinedAt);
     }
     const embed = {
         "color": COR_FRIEND,
