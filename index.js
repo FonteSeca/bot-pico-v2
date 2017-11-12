@@ -563,10 +563,10 @@ User.sync({force: true}).then(() => {
       let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
       if (roles.length < 1) roles = ['Nenhum'];
 
-      let avatarUser = msg.mentions.users.first().avatarURL;
-      let nickDiscord = msg.mentions.users.first().username;
+      let avatarUser = msg.author.avatarURL;
+      let nickDiscord = msg.author..username;
       let nickServer = msg.guild.member(msg.author).nickname;
-      let enterDiscord = dateFormat(msg.mentions.users.first().createdAt);
+      let enterDiscord = dateFormat(msg.author..createdAt);
       let enterServer = dateFormat(member.joinedAt);
     }
     const embed = {
