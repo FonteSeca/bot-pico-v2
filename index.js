@@ -290,46 +290,50 @@ Bot.on('message', msg => {
   }
 
   function ship(msg, suffix) {
-    var chanceship = Math.floor(Math.random() * 100);
+    if (msg.mentions.users.size > 0){
+      var chanceship = Math.floor(Math.random() * 100);
     const shipname = msg.mentions.users.first().username.replace(/[^a-z1-90]/gi, '').charAt(0).toUpperCase() + msg.mentions.users.first().username.replace(/[^a-z1-90]/gi, '').slice(1).slice(0,(msg.mentions.users.first().username.length / 2 + 1)).trim().toLowerCase() + msg.mentions.users.last().username.replace(/[^a-z1-90]/gi, '').slice(msg.mentions.users.last().username.length/2 - 2).trim().toLowerCase()
     for (i = 1; chanceship == 0; i++) { 
 
     }
     const embed = {
-  "title": "asd",
-  "description": "asdd",
-  "color": COR_LOVE,
-  "thumbnail": {
-    "url": Bot.user.avatarURL
-  },
-  "author": {
-    "name": Bot.user.username,
-    "icon_url": Bot.user.avatarURL
-  },
-  "fields": [
-    {
-      "name": "Ship",
-      "value": msg.mentions.users.first().username,
-      "inline": true
+    "title": "asd",
+    "description": "asdd",
+    "color": COR_LOVE,
+    "thumbnail": {
+      "url": Bot.user.avatarURL
     },
-    {
-      "name": "Ship",
-      "value": msg.mentions.users.last().username,
-      "inline": true
+    "author": {
+      "name": Bot.user.username,
+      "icon_url": Bot.user.avatarURL
     },
-    {
-      "name": "Ship",
-      "value": shipname,
-      "inline": true
-    },
-    {
-      "name": "Ship",
-      "value": chanceship + "/100",
-      "inline": true
+    "fields": [
+      {
+        "name": "Ship",
+        "value": msg.mentions.users.first().username,
+        "inline": true
+      },
+      {
+        "name": "Ship",
+        "value": msg.mentions.users.last().username,
+        "inline": true
+      },
+      {
+        "name": "Ship",
+        "value": shipname,
+        "inline": true
+      },
+      {
+        "name": "Ship",
+        "value": chanceship + "/100",
+        "inline": true
+      }
+      ]};
+    msg.channel.send({embed});  
+    } else {
+      msg.channel.send(basicembed(COR_EROU, 'Use **' + PREFIX + 'ship** * *@user* *@user*'));
     }
-  ]
-};
-    msg.channel.send({embed});
+    
 
   }
 
@@ -550,7 +554,6 @@ User.sync({force: true}).then(() => {
     const nickServer = "";
     const enterDiscord = "";
     const enterServer = "";
-    const roles = [];
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
 
