@@ -15,7 +15,7 @@
     "sequelize": "^3.23.6",
     "pg": "^6.1.0",
     "sqlite3": "^3.0.8",
-    "dateformat": "^3.0.2",
+    "dateformat": "^3.0.2"
   },
   "devDependencies": {},
   "scripts": {
