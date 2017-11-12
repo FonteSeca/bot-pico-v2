@@ -571,7 +571,7 @@ User.sync({force: true}).then(() => {
           },
           {
             "name": "Entrou no Discord",
-            "value": {dateFormat(msg.mentions.users.first().createdAt),
+            "value": dateFormat(msg.mentions.users.first().createdAt),
             "inline": true
           },  
             "name": "Entrou no Server",
