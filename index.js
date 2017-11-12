@@ -115,15 +115,7 @@ Bot.on('message', msg => {
     }
   }
 
-  function avatar(msg, suffix) {
-    if (msg.mentions.users.size < 1) {
-      msg.channel.send(imageembed(COR_BASE, msg.author.avatarURL, 'Avatar de **' msg.author.username + '**'));
-    }
-    if (msg.mentions.users.size > 0) {
-      msg.channel.send(imageembed(COR_BASE, msg.mentions.users.first().avatarURL, 'Avatar de **' msg.mentions.users.first().username + '**'));
-    }
-    
-  }
+
 
   function isAdmin(member) {
     return member.hasPermission("ADMINISTRATOR");
@@ -543,24 +535,25 @@ User.sync({force: true}).then(() => {
         "thumbnail": {
           "url": msg.mentions.users.first().avatarURL
         },
+        description: "Informações de " + msg.mentions.users.first().username,
         "fields": [
           {
-            "name": "Duração",
+            "name": "Apelido",
             "value": msg.mentions.users.first().username,
             "inline": true
           },
           {
-            "name": "Nhanahanh",
+            "name": "Apelido no Server",
             "value": member.nickname,
             "inline": true
           },
           {
-            "name": "Nhanahanh",
+            "name": "Entrou no Discord",
             "value": msg.mentions.users.first().createdAt,
             "inline": true
           },
           {
-            "name": "Nhanahanh",
+            "name": "Entrou no Server",
             "value": member.joinedAt,
             "inline": true
           },
@@ -576,13 +569,21 @@ User.sync({force: true}).then(() => {
   }
 
   function infoserver(msg, suffix){
-    console.log('nha /n' + msg);
-    console.log('pah /n' + suffix);
     msg.channel.send('Dono: ' + msg.guild.owner);
     msg.channel.send('Servidor Criado: ' + msg.guild.createdAt);
     msg.channel.send('Membros no Servidor: ' + msg.guild.memberCount);
     msg.channel.send('Cargos no Servidor: ' + msg.guild.roles.toString());
 
+  }
+
+  function avatar(msg, suffix) {
+    if (msg.mentions.users.size < 1) {
+      msg.channel.send(imageembed(COR_BASE, msg.author.avatarURL, 'Avatar de **' + msg.author.username + '**'));
+    }
+    if (msg.mentions.users.size > 0) {
+      msg.channel.send(imageembed(COR_BASE, msg.mentions.users.first().avatarURL, 'Avatar de **' + msg.mentions.users.first().username + '**'));
+    }
+    
   }
 
   // COMANDOS Administrativos
