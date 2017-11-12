@@ -679,7 +679,11 @@ User.sync({force: true}).then(() => {
 
   function help(msg, suffix) {
     msg.author.send(basicembed(COR_BASE, 'çalksça'));
-
+    if(msg.mentions.users.size > 0) {
+      message.channel.send('Kyaaa');
+    } else if (message.mentions.users.size == 0) {
+      message.channel.send('Vai se fuder-desu');
+    }
 
   }
 
