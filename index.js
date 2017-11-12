@@ -575,7 +575,7 @@ User.sync({force: true}).then(() => {
             "inline": true
           },  
             "name": "Entrou no Server",
-            "value": member.joinedAt,
+            "value": dateFormat(member.joinedAt),
             "inline": true
           },
           {
