@@ -545,12 +545,12 @@ User.sync({force: true}).then(() => {
   }
 
   function info(msg, suffix) {
-    const avatarUser;
-    const nickDiscord;
-    const nickServer;
-    const enterDiscord;
-    const enterServer;
-    const roles;
+    const avatarUser = "";
+    const nickDiscord = "";
+    const nickServer = "";
+    const enterDiscord = "";
+    const enterServer = "";
+    const roles = "";
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
 
