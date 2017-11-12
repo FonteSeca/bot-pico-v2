@@ -550,7 +550,7 @@ User.sync({force: true}).then(() => {
     const nickServer = "";
     const enterDiscord = "";
     const enterServer = "";
-    const roles = "";
+    const roles [];
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
 
