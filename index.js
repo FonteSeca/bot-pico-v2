@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const music = require('./music.js');
 const Sequelize = require('sequelize');
 const Bot = new Discord.Client();
+const dateFormat = require('dateformat');
 
 
 // const fs = require("fs");
@@ -17,6 +18,22 @@ let COR_ADM = '16711680';
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 let PREFIX = "$";
+
+dateFormat.i18n = {
+    dayNames: [
+        'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab',
+        'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'
+    ],
+    monthNames: [
+        'Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez',
+        'Janeiro', 'Feveiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembr'
+    ],
+    timeNames: [
+        'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+    ]
+};
+
+dateFormat("dddd, mmmm d, yyyy, HH:M");
 
 module.exports = () => ({
   date: new Date
@@ -530,12 +547,17 @@ User.sync({force: true}).then(() => {
   function info(msg, suffix) {
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
+      let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+    if (roles.length < 1) roles = ['None'];
       const embed = {
         "color": COR_FRIEND,
         "thumbnail": {
           "url": msg.mentions.users.first().avatarURL
         },
-        description: "Informações de " + msg.mentions.users.first().username,
+        "author": {
+          "name": msg.mentions.users.first().username,
+          "icon_url": msg.mentions.users.first().avatarURL
+        },
         "fields": [
           {
             "name": "Apelido",
@@ -549,13 +571,16 @@ User.sync({force: true}).then(() => {
           },
           {
             "name": "Entrou no Discord",
-            "value": msg.mentions.users.first().createdAt,
+            "value": {dateFormat(msg.mentions.users.first().createdAt),
             "inline": true
-          },
-          {
+          },  
             "name": "Entrou no Server",
             "value": member.joinedAt,
             "inline": true
+          },
+          {
+            "name": "Cargos",
+            "value": roles.join(', ')
           },
           ]
       };
@@ -590,7 +615,7 @@ User.sync({force: true}).then(() => {
 
   function ban(msg, suffix) {
 
-    if (msg.member.hasPermission("BAN_MEMBERS")) {
+    if (msg.member.hasPermission("MANAGE_MESSAGES")) {
       if (msg.mentions.users.size < 1 || msg.mentions.users.size > 1 || msg.author.toString() == msg.mentions.users.first().toString()) {
         msg.channel.send(basicembed(COR_EROU,'Use **' + PREFIX + 'ban** *@user*'));
       } else {
