@@ -549,62 +549,39 @@ User.sync({force: true}).then(() => {
   }
 
   function info(msg, suffix) {
-    const avatarUser = "";
-    const nickDiscord = "";
-    const nickServer = "";
-    const enterDiscord = "";
-    const enterServer = "";
     if (msg.mentions.users.size > 0) {
       const member = msg.guild.member(msg.mentions.users.first());
 
       roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
       if (roles.length < 1) roles = ['Nenhum'];
-
-      avatarUser = msg.mentions.users.first().avatarURL;
-      nickDiscord = msg.mentions.users.first().username;
-      nickServer = member.nickname;
-      enterDiscord = dateFormat(msg.mentions.users.first().createdAt);
-      enterServer = dateFormat(member.joinedAt);
-    }
-    else if (msg.mentions.users.size == 0) {
-      const member = msg.guild.member(msg.author);      
-      roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
-      if (roles.length < 1) roles = ['Nenhum'];
-
-      avatarUser = msg.author.avatarURL;
-      nickDiscord = msg.author.username;
-      nickServer = msg.guild.member(msg.author).nickname;
-      enterDiscord = dateFormat(msg.author.createdAt);
-      enterServer = dateFormat(member.joinedAt);
-    }
-    const embed = {
+      const embed = {
         "color": COR_FRIEND,
         "thumbnail": {
-          "url": avatarUser
+          "url": msg.mentions.users.first().avatarURL
         },
         "author": {
-          "name": nickDiscord,
-          "icon_url": avatarUser
+          "name": msg.mentions.users.first().username,
+          "icon_url": msg.mentions.users.first().avatarURL
         },
         "fields": [
           {
             "name": "Apelido",
-            "value": nickDiscord,
+            "value": msg.mentions.users.first().username,
             "inline": true
           },
           {
             "name": "Apelido no Server",
-            "value": nickServer,
+            "value": member.nickname,
             "inline": true
           },
           {
             "name": "Entrou no Discord",
-            "value": enterDiscord,
+            "value": dateFormat(msg.mentions.users.first().createdAt),
             "inline": true
           },
           {  
             "name": "Entrou no Server",
-            "value": enterServer,
+            "value": dateFormat(member.joinedAt),
             "inline": true
           },
           {
@@ -614,6 +591,50 @@ User.sync({force: true}).then(() => {
           ]
       };
       msg.channel.send({embed});
+    }
+    else if (msg.mentions.users.size == 0) {
+      const member = msg.guild.member(msg.author);      
+      roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+      if (roles.length < 1) roles = ['Nenhum'];
+          const embed = {
+        "color": COR_FRIEND,
+        "thumbnail": {
+          "url": msg.author.avatarURL
+        },
+        "author": {
+          "name": msg.author.username,
+          "icon_url": msg.author.avatarURL
+        },
+        "fields": [
+          {
+            "name": "Apelido",
+            "value": msg.author.username,
+            "inline": true
+          },
+          {
+            "name": "Apelido no Server",
+            "value": msg.guild.member(msg.author).nickname,
+            "inline": true
+          },
+          {
+            "name": "Entrou no Discord",
+            "value": dateFormat(msg.author.createdAt),
+            "inline": true
+          },
+          {  
+            "name": "Entrou no Server",
+            "value": dateFormat(member.joinedAt),
+            "inline": true
+          },
+          {
+            "name": "Cargos",
+            "value": roles.join(', ')
+          },
+          ]
+      };
+      msg.channel.send({embed});
+    }
+
     
     
   }
