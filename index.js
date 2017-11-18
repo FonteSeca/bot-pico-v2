@@ -345,7 +345,7 @@ Bot.on('message', msg => {
   function kame(msg, suffix) {
     if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!kame** *@user*'));
     var kameImg = 'https://cdn.discordapp.com/attachments/300826546359369729/368242010181599232/kamehameha.gif';
-    msg.channel.send(imageembed(COR_FRIEND, kameImgm, '**' + msg.author.username + '** usou Kamehameha em *' + msg.mentions.users.first(). username + '*'));
+    msg.channel.send(imageembed(COR_FRIEND, kameImgm, '**' + msg.author.username + '** usou Kamehameha em *' + msg.mentions.users.first().username + '*'));
   }
 
   function ship(msg, suffix) {
