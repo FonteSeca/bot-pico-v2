@@ -94,6 +94,19 @@ Bot.on('message', msg => {
       case 'luar':
         return luar(msg, suffix);
 
+      case 'cry':
+        return cry(msg, suffix);
+      case 'punch':
+        return punch(msg, suffix);
+      case 'wake':
+        return wake(msg, suffix);
+      case 'cold':
+        return cold(msg, suffix);
+      case 'happy':
+        return happy(msg, suffix);
+      case 'angry':
+        return angry(msg, suffix);
+
       case 'hug':
         return hug(msg, suffix);
       case 'kiss':
@@ -287,6 +300,44 @@ Bot.on('message', msg => {
     var kissnum = Math.floor(Math.random() * 6);
     var kissImg = KissArray[kissnum];
     msg.channel.send(imageembed(COR_LOVE, kissImg, '**' + msg.author.username + '** deu um beijo em *' + msg.mentions.users.first().username + '*'));
+  }
+
+  function cry(msg,suffix){
+    if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!cry** *@user*'));
+    CryArray = new Array();
+    CryArray[0] = 'https://cdn.discordapp.com/attachments/300826546359369729/368241967412543488/chorar.gif';
+    CryArray[1] = 'https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif';
+    CryArray[2] = 'https://media1.tenor.com/images/15dd673b469356e2129a0be61c81c3e1/tenor.gif';
+    CryArray[3] = 'https://78.media.tumblr.com/e9fb46144efc579746e57bcaebd3350a/tumblr_olrmy4djBG1tydz8to1_500.gif';
+    CryArray[4] = 'https://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-9.gif';
+    CryArray[5] = 'http://media.tumblr.com/tumblr_m9wjveIE2i1r00elk.gif';
+    CryArray[6] = 'https://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-28.gif';
+    CryArray[7] = '';
+    CryArray[8] = '';
+    CryArray[9] = '';
+    CryArray[10] = '';
+    var crynum = Math.floor(Math.random() * 6);
+    var cryImg = CryArray[crynum];
+    msg.channel.send(imageembed(COR_FRIEND, cryImg, '**' + msg.author.username + '** está chorando'));
+  }
+
+  function punch(msg,suffix){
+    if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!punch** *@user*'));
+    PunchArray = new Array();
+    PunchArray[0] = 'https://media.giphy.com/media/B2EPZUJnvce3u/giphy.gif';
+    PunchArray[1] = 'https://media.giphy.com/media/LdsJrFnANh6HS/giphy.gif';
+    PunchArray[2] = 'https://media1.tenor.com/images/7a582f32ef2ed527c0f113f81a696ae3/tenor.gif';
+    PunchArray[3] = 'https://media.giphy.com/media/101UaBk3pmFPXO/giphy.gif';
+    PunchArray[4] = 'https://gifimage.net/wp-content/uploads/2017/09/anime-punch-gif-9.gif';
+    PunchArray[5] = 'https://media.giphy.com/media/iWAqMe8hBWKVq/giphy-downsized-large.gif';
+    PunchArray[6] = 'http://i0.kym-cdn.com/photos/images/original/000/641/427/824.gif';
+    PunchArray[7] = 'https://media.giphy.com/media/nOdUe5Fw7YK40/giphy.gif';
+    PunchArray[8] = '';
+    PunchArray[9] = '';
+    PunchArray[10] = '';
+    var punchnum = Math.floor(Math.random() * 8);
+    var punchImg = PunchArray[punchnum];
+    msg.channel.send(imageembed(COR_FRIEND, punchImg, '**' + msg.author.username + '** deu um soco em *' + msg.mentions.users.first().username + '*'));
   }
 
   function ship(msg, suffix) {
