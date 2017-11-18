@@ -106,6 +106,9 @@ Bot.on('message', msg => {
         return happy(msg, suffix);
       case 'angry':
         return angry(msg, suffix);
+      case 'kame':
+        return kame(msg, suffix);
+      
 
       case 'hug':
         return hug(msg, suffix);
@@ -337,6 +340,12 @@ Bot.on('message', msg => {
     var punchnum = Math.floor(Math.random() * 8);
     var punchImg = PunchArray[punchnum];
     msg.channel.send(imageembed(COR_FRIEND, punchImg, '**' + msg.author.username + '** deu um soco em *' + msg.mentions.users.first().username + '*'));
+  }
+
+  function kame(msg, suffix) {
+    if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!kame** *@user*'));
+    var kameImg = 'https://cdn.discordapp.com/attachments/300826546359369729/368242010181599232/kamehameha.gif';
+    msg.channel.send(imageembed(COR_FRIEND, kameImgm, '**' + msg.author.username + '** usou Kamehameha em *' + msg.mentions.users.first(). username + '*'));
   }
 
   function ship(msg, suffix) {
