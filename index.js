@@ -303,7 +303,6 @@ Bot.on('message', msg => {
   }
 
   function cry(msg,suffix){
-    if (!suffix) return msg.channel.send(basicembed(COR_EROU,'Use **!cry** *@user*'));
     CryArray = new Array();
     CryArray[0] = 'https://cdn.discordapp.com/attachments/300826546359369729/368241967412543488/chorar.gif';
     CryArray[1] = 'https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif';
