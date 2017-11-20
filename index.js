@@ -630,7 +630,7 @@ User.sync({force: true}).then(() => {
           },
           {
             "name": "Apelido no Server",
-            "value": member.nickname,
+            "value": 'member.nickname',
             "inline": true
           },
           {
@@ -758,13 +758,8 @@ User.sync({force: true}).then(() => {
   }
 
   function help(msg, suffix) {
-    msg.author.send(basicembed(COR_BASE, 'çalksça'));
-    if(msg.mentions.users.size > 0) {
-      msg.channel.send('Kyaaa');
-    } else if (msg.mentions.users.size == 0) {
-      msg.channel.send('Vai se fuder-desu');
-    }
 
+// https://discord.gg/UZNPcEB
   }
 
   function fdp(msg, suffix) {
