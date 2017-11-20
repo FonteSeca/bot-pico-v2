@@ -630,7 +630,7 @@ User.sync({force: true}).then(() => {
           },
           {
             "name": "Apelido no Server",
-            "value": 'member.nickname',
+            "value": member.nickname,
             "inline": true
           },
           {
@@ -672,7 +672,7 @@ User.sync({force: true}).then(() => {
           },
           {
             "name": "Apelido no Server",
-            "value": msg.guild.member(msg.author).nickname,
+            "value": member.nickname,
             "inline": true
           },
           {
